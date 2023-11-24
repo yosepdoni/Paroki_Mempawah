@@ -26,6 +26,9 @@
         <li class="nav-item">
           <a class="nav-link text-light" href="index.php?p=sejarah">Sejarah</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="#">Pengumuman</a>
+        </li>
 
         <?php
         // Check if the user is logged in and has the appropriate level

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2023 at 06:35 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.0.28
+-- Waktu pembuatan: 24 Nov 2023 pada 17.20
+-- Versi server: 10.4.27-MariaDB
+-- Versi PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `baptis`
+-- Struktur dari tabel `baptis`
 --
 
 CREATE TABLE `baptis` (
@@ -41,7 +41,7 @@ CREATE TABLE `baptis` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `baptis`
+-- Dumping data untuk tabel `baptis`
 --
 
 INSERT INTO `baptis` (`id_baptis`, `jenis_baptis`, `nama`, `tgl_lahir`, `tempat_lahir`, `nama_ortu`, `alamat`, `telepon`, `gambar`, `keterangan`) VALUES
@@ -54,7 +54,7 @@ INSERT INTO `baptis` (`id_baptis`, `jenis_baptis`, `nama`, `tgl_lahir`, `tempat_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jadwal`
+-- Struktur dari tabel `jadwal`
 --
 
 CREATE TABLE `jadwal` (
@@ -70,7 +70,7 @@ CREATE TABLE `jadwal` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `katekumen`
+-- Struktur dari tabel `katekumen`
 --
 
 CREATE TABLE `katekumen` (
@@ -82,7 +82,7 @@ CREATE TABLE `katekumen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `katekumen`
+-- Dumping data untuk tabel `katekumen`
 --
 
 INSERT INTO `katekumen` (`id_katekumen`, `hari`, `waktu`, `tempat`, `katekis`) VALUES
@@ -92,59 +92,76 @@ INSERT INTO `katekumen` (`id_katekumen`, `hari`, `waktu`, `tempat`, `katekis`) V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
   `id_user` int(5) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `password` varchar(30) NOT NULL
+  `password` varchar(32) NOT NULL,
+  `level` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`id_user`, `nama`, `email`, `password`, `level`) VALUES
+(2, 'yosep', 'yosep@gmail.com', 'f5bb0c8de146c67b44babbf4e6584cc0', 'user'),
+(3, 'daniel', 'daniel@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 'admin'),
+(4, 'gerry topher', 'gerry@gmail.com', 'f5bb0c8de146c67b44babbf4e6584cc0', 'user'),
+(5, 'suhendra montek', 'suhendra@gmail.com', 'f5bb0c8de146c67b44babbf4e6584cc0', 'user');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `baptis`
+-- Indeks untuk tabel `baptis`
 --
 ALTER TABLE `baptis`
   ADD PRIMARY KEY (`id_baptis`);
 
 --
--- Indexes for table `jadwal`
+-- Indeks untuk tabel `jadwal`
 --
 ALTER TABLE `jadwal`
   ADD PRIMARY KEY (`id_jadwal`);
 
 --
--- Indexes for table `katekumen`
+-- Indeks untuk tabel `katekumen`
 --
 ALTER TABLE `katekumen`
   ADD PRIMARY KEY (`id_katekumen`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `baptis`
+-- AUTO_INCREMENT untuk tabel `baptis`
 --
 ALTER TABLE `baptis`
   MODIFY `id_baptis` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `katekumen`
+-- AUTO_INCREMENT untuk tabel `katekumen`
 --
 ALTER TABLE `katekumen`
   MODIFY `id_katekumen` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `user`
+--
+ALTER TABLE `user`
+  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
