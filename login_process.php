@@ -29,7 +29,9 @@ if ($cek > 0) {
             exit();
         case 'katekis':
             $_SESSION['level'] = 'katekis';
+            header("Location: ./admin/");
             break;
+            exit();
         case 'admin':
             $_SESSION['level'] = 'admin';
             header("Location: ./admin/"); // Adjusted path
