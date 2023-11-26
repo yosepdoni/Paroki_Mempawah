@@ -1,20 +1,33 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Form Pendaftaran Sakramen Baptis</title>
     <!-- Tautan ke file CSS Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
+
 <body>
-<?php
-include 'session.php';
-?>
+    <?php
+    include 'session.php';
+    ?>
+
     <div class="container p-5 mt-5">
-        <h1 class="text-center">Form Pendaftaran Sakramen Baptis Dewasa</h1>
+        <h1 class="text-center">Form Pendaftaran Sakramen Baptis Dewasa </h1>
+
+
         <form action="./aksi/post_dewasa.php" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="nama_baptis">Nama Calon Baptis:</label>
-                <!-- <input type="hidden" class="form-control" name="jenis_baptis" required> -->
+                <?php
+                if (isset($_SESSION['email'])) {
+                    echo
+                    '<input type="hidden" class="form-control" name="id_user" value='.$_SESSION['id_user'] .' required>';
+                } else {
+                    echo 'tidak ada ';
+                }
+                ?>
+               
                 <input type="text" class="form-control" id="nama_baptis" name="nama" required>
             </div>
 
@@ -47,11 +60,11 @@ include 'session.php';
                 <label for="pastor_paroki">Pastor Paroki:</label>
                 <input type="text" class="form-control" id="pastor_paroki" name="pastor_paroki" required>
             </div> -->
-            
+
             <div class="form-group">
-            <label for="gambar">Upload bukti katekumen:</label>
-            <input type="file" name="gambar" name="gambar" id="gambar">
-            <!-- <input type="submit" value="Unggah Gambar" name="submit"> -->
+                <label for="gambar">Upload bukti katekumen:</label>
+                <input type="file" name="gambar" name="gambar" id="gambar">
+                <!-- <input type="submit" value="Unggah Gambar" name="submit"> -->
             </div>
 
             <div class="text-center">
@@ -67,11 +80,12 @@ include 'session.php';
                     <li>Calon baptis dewasa perlu menjalani retret spiritual sebagai persiapan akhir sebelum menerima sakramen baptis.</li>
                 </ul>
             </div>
-            </div>
+    </div>
 
     <!-- Tautan ke file JavaScript Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>

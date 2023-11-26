@@ -58,6 +58,9 @@
         else if($page=="jadwal"){
             include "jadwal.php";
         }
+        else if($page=="absen"){
+          include "katekis/absen.php";
+        }
         else if($page=="baptis_dewasa"){
           include "baptis/dewasa.php";
         }

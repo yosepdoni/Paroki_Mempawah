@@ -3,6 +3,7 @@
 include '../koneksi.php';
 
 // Menangkap data yang dikirim dari form
+$id_user = $_POST['id_user'];
 $jenis_baptis = 'dewasa';
 $nama_baptis = $_POST['nama'];
 $tanggal_lahir = $_POST['tgl_lahir'];
@@ -22,7 +23,7 @@ $uploadDir = '../uploads/';
 move_uploaded_file($gambarTmpName, $uploadDir . $gambarName);
 
 // Memasukkan data ke database
-mysqli_query($conn,"insert into baptis values('','$jenis_baptis','$nama_baptis','$tanggal_lahir','$tempat_lahir', '','$alamat','$telp', '$gambarName','')");
+mysqli_query($conn,"insert into baptis values('','$id_user','$jenis_baptis','$nama_baptis','$tanggal_lahir','$tempat_lahir', '','$alamat','$telp', '$gambarName','')");
 
 // Mengalihkan halaman kembali ke index.php
 echo "<script>alert('Pendaftaran berhasil disimpan'); window.location.href='../index.php?p=baptis_dewasa'</script>";
