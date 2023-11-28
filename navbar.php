@@ -18,7 +18,7 @@
           <a class="nav-link text-light" href="./#home">Beranda</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" href="index.php?p=galeri">Jadwal</a>
+          <a class="nav-link text-light" href="index.php?p=jadwal">Jadwal</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-light" href="index.php?p=kontak">Kontak</a>
@@ -63,8 +63,6 @@
     
         }
         ?>
-
-
       </ul>
     </div>
   </div>

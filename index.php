@@ -51,8 +51,8 @@
 
       if ($page == "home") {
         include "home.php";
-      } else if ($page == "galeri") {
-        include "galeri.php";
+      } else if ($page == "jadwal") {
+        include "jadwal.php";
       } else if ($page == "kontak") {
         include "kontak.php";
       } else if ($page == "sejarah") {
