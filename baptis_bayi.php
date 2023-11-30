@@ -63,13 +63,13 @@
             </div>
 
             <div class="form-group">
-                <label for="alamat">Nama Ayah:</label>
-                <input type="text" class="form-control" id="alamat" name="alamat" required>
+                <label for="ayah">Nama Ayah:</label>
+                <input type="text" class="form-control" id="ayah" name="nama_ayah" required>
             </div>
 
             <div class="form-group">
-                <label for="alamat">Nama Ibu:</label>
-                <input type="text" class="form-control" id="alamat" name="alamat" required>
+                <label for="ibu">Nama Ibu:</label>
+                <input type="text" class="form-control" id="ibu" name="nama_ibu" required>
             </div>
 
             <div class="form-group">
@@ -77,14 +77,14 @@
                 <input type="tel" class="form-control" id="nomor_telepon" name="telepon" required>
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="gambar">Upload Surat Nikah:</label>
                 <input type="file" name="gambar" name="gambar" id="gambar">
             </div>
 
             <div class="form-group">
                 <label for="gambar">Upload Akta:</label>
-                <input type="file" name="gambar" name="gambar" id="gambar">
+                <input type="file" name="gambar" name="gambar" id="gambar"> -->
             </div>
                     
             <div class="text-center">

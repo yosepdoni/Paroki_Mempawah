@@ -81,14 +81,13 @@ if (isset($_SESSION['id_user'])) {
 $UserId = $_SESSION['id_user']; // Pastikan id_user sudah tersedia di session
 
 // Lakukan query untuk menghitung jumlah presensi
-$queryPresensi = mysqli_query($conn, "SELECT * FROM presensi WHERE id_user='$UserId'");
-$jumlahPresensi = 0;
+$queryPresensi = mysqli_query($conn, "SELECT SUM(jumlah_presensi) AS total_presensi FROM presensi WHERE id_user='$UserId'");
 
 // Periksa apakah query berhasil dieksekusi
 if ($queryPresensi) {
     // Ambil data jumlah presensi dari hasil query
     $dataPresensi = mysqli_fetch_assoc($queryPresensi);
-    $jumlahPresensi = $dataPresensi['jumlah_presensi'];
+    $jumlahPresensi = $dataPresensi['total_presensi'];
 } else {
     // Handle jika query tidak berhasil dieksekusi
     echo "Terjadi kesalahan saat mengambil data presensi.";
@@ -101,6 +100,7 @@ $minPresensi = 5;
 $isButtonDisabled = ($jumlahPresensi >= $minPresensi) ? false : true;
 ?>
 <h4>Jumlah Presensi: <?php echo $jumlahPresensi; ?></h4>
+
 
             <div class="text-right">
                 <button type="submit" class="btn btn-primary" <?php if ($isButtonDisabled) echo 'disabled'; ?>>

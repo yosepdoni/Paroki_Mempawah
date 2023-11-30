@@ -4,9 +4,6 @@
 <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" /> -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />                               
   
-
-
-  
 <div class="col-md-12 mt-5">
     <div class="container">
     <!-- <a class="btn btn-primary mt-3 mb-2" href="index.php?p=form_jadwal"><i class="fa fa-plus"></i> Tambah Baptis     -->
@@ -42,8 +39,8 @@
                 <th scope="col">Telepon</th>
                 <th scope="col">Nama Ayah</th>
                 <th scope="col">Nama Ibu</th>
-                <th scope="col">Akta</th>
-                <th scope="col">Surat Nikah</th>
+                <!-- <th scope="col">Akta</th>
+                <th scope="col">Surat Nikah</th> -->
                 <th scope="col">Aksi</th>
               </tr>
             </thead>
@@ -64,8 +61,6 @@
                 <td><?php echo $result['nama_ayah']; ?></td>
                 <td><?php echo $result['nama_ibu']; ?></td>
                 <td><?php echo $result['telepon']; ?></td>
-                <td><?php echo $result['akta']; ?></td>
-                <td><?php echo $result['surat_nikah']; ?></td>
                 <td>
                      <a href="index.php?p=edit_jadwal&id=<?=$result['id'];?>" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>&nbsp;
                      <a onclick="return confirm('apakah anda yakin? ');" href="index.php?p=ac_delete_jadwal&id=<?=$result['id'] ?>" class="btn btn-danger btn-sm"><i class= "fa fa-trash">&nbsp;</i></a>
