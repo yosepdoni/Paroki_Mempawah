@@ -12,57 +12,63 @@
       <table id="tabel-data" class="table table-striped table-bordered" width="100%">
         <thead class="thead-light">
           <tr>
-            <th scope="col">ID</th>
+            <th scope="col">No</th>
             <th scope="col">Nama</th>
-            <th scope="col">Tanggal Lahir</th>
-            <th scope="col">Tempat Lahir</th>
-            <th scope="col">Alamat</th>
-            <th scope="col">Telepon</th>
-            <th scope="col">Tanggal Baptis</th>
-            <th scope="col">Katekumen</th>
+            <th scope="col">Jumlah Presensi</th>
+            <th scope="col">Tanggal Presensi</th>
             <th scope="col">Aksi</th>
           </tr>
         </thead>
         <tbody>
-          <?php
+        <?php
+include "../koneksi.php";
 
-          include "../koneksi.php";
-          $data = mysqli_query($conn, "select * from baptis where jenis_baptis='dewasa'");
-          $no = 1;
-          while ($result = mysqli_fetch_array($data)) {
-          ?>
-            <?php
-            if (isset($_POST['tambah']) && $_POST['add_absen'] == $d['id_user']) {
-              // Perform the database update
-              $IdUser = $d['id_user'];
-              $updateQuery = "UPDATE absen SET kehadiran='+ 1' WHERE id_user = '$IdUser'";
-              $result = mysqli_query($conn, $updateQuery);
-              if ($result) {
-                $d['kehadiran'] = '1';
-                echo "<script>window.location.href='index.php?p=absen'</script>";
-                exit;
-              } else {
-                echo "Gagal update status: ";
-              }
-            }
-            ?>
+if (isset($_POST['id_user'])) {
+    $UserId = $_POST['id_user'];
+    
+    // Mendapatkan tanggal presensi
+    $tanggalPresensi = date('Y-m-d'); // Mendapatkan tanggal saat ini
+    $jumlahPresensi = '1';
+
+    // Memasukkan data ke tabel presensi tanpa mengubah jumlah_presensi yang ada
+    
+    mysqli_query($conn,"insert into presensi values('','$UserId','$tanggalPresensi','$jumlahPresensi')");
+    echo "<script>alert('Presensi berhasil ditambahkan'); window.location.href='index.php?p=absen'</script>";
+    }
+
+        
+    $data = mysqli_query($conn, "SELECT p.id_user, u.nama, SUM(p.jumlah_presensi) as total_presensi
+    FROM presensi p
+    JOIN user u ON p.id_user = u.id_user
+    GROUP BY p.id_user");
+$no = 1;
+
+while ($result = mysqli_fetch_array($data)) {
+  ?>
             <tr>
-              <form method="POST">
-                <td><?= $no++; ?></td>
-                <input type="hidden" name="add_absen" value="<?= $d['id_pesanan']; ?>">
-                <td><?php echo $result['nama']; ?></td>
-                <td><?php echo date('d F Y', strtotime($result['tgl_lahir'])); ?></td>
-                <td><?php echo $result['tempat_lahir']; ?></td>
-                <td><?php echo $result['alamat']; ?></td>
-                <td><?php echo $result['telepon']; ?></td>
-                <td><?php echo date('d F Y', strtotime($result['tgl_baptis'])); ?></td>
-                <td><?php echo $result['katekumen']; ?></td>
-                <!-- <td>
-                  <a href="index.php?p=edit_jadwal&id=<?= $result['id']; ?>" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>&nbsp;
-                  <a onclick="return confirm('apakah anda yakin? ');" href="index.php?p=ac_delete_jadwal&id=<?= $result['id'] ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash">&nbsp;</i></a>
-                </td> -->
+             
+                <form method="POST">
+            <td><?= $no++; ?></td>
+          <input type="hidden" name="id_user" value="<?= $result['id_user']; ?>">
+          <input type="hidden" name="tgl_presensi">
+          <input type="hidden" name="jumlah_presensi">
+                <p hidden>
+                <?php $UserId = $result['id_user'] ?>
+                </p>
+                
+                <?php
+                $query = mysqli_query($conn,"SELECT * FROM user where id_user='$UserId'");
+                while ($da = mysqli_fetch_array($query)){
+               ?>
+                  <td><?php echo $da['nama']; ?></td>
+
+                <?php }
+                 ?>
+                <td><?= $result['total_presensi']; ?></td>
+                <!-- <td><?php echo date('d F Y'); ?></td> -->
+                <td><?php echo date('d F Y', strtotime($time)); ?></td>                
                 <td>
-                      <button type="submit" class="btn btn-info btn-sm"> <i class="fa fa-arrow-right"></i> </button>
+                      <button type="submit" name="tambah" class="btn btn-info btn-sm"> <i class="fa fa-plus"></i> </button>
                       </td>
               </form>
             </tr>

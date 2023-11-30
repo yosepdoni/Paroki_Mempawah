@@ -2,7 +2,7 @@
     <div class="container">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Contact Form</h5>
+                <h5 class="card-title">Form Jadwal</h5>
                 <form method="POST" action="aksi/ac_post_jadwal.php">
                     <div class="mb-3">
                         <label for="Hari" class="form-label">Hari</label>
@@ -19,19 +19,23 @@
                     </div>
                     <div class="mb-3">
                         <label for="Tanggal" class="form-label">Tanggal</label>
-                        <input type="date" class="form-control" id="Tanggal" name="tanggal" required>
+                        <input type="date" class="form-control" id="Tanggal" name="tgl" required>
                     </div>
                     <div class="mb-3">
                         <label for="Waktu" class="form-label">Waktu</label>
                         <input type="time" class="form-control" id="Waktu" name="waktu" required>
                     </div>
                     <div class="mb-3">
+                        <label for="Tempat" class="form-label">Tempat</label>
+                        <input type="text" class="form-control" id="Tempat" name="tempat" placeholder="Tempat" required>
+                    </div>
+                    <div class="mb-3">
                         <label for="Perayaan" class="form-label">Perayaan</label>
                         <input type="text" class="form-control" id="Perayaan" name="perayaan" placeholder="Perayaan" required>
                     </div>
                     <div class="mb-3">
-                        <label for="Keterangan" class="form-label">Keterangan</label>
-                        <textarea class="form-control" id="Keterangan" rows="3" name="ket"></textarea>
+                        <label for="pastor" class="form-label">Pastor</label>
+                        <input class="form-control" id="Pastor" name="pastor"></input>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>

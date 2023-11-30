@@ -11,7 +11,7 @@
                 <i class="fas fa-gem me-3"></i>Alamat
               </h6>
               <p>
-                Jalan Bangkam, Desa Bukit Batu, Kecamatan Sungai Kunyit, Kabupaten Mempawah, Kalimantan Barat.
+                Jalan Teratai No. 12, Kecamatan Mempawah Hilir, Kabupaten Mempawah, Kalimantan Barat
               </p>
             </div>
             <!-- Grid column -->
@@ -20,9 +20,9 @@
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
               <!-- Links -->
               <h6 class="text-uppercase fw-bold mb-4">
-                Jadwal
+                Jadwal Misa
               </h6>
-              <p>Minggu pukul 08:00 WIB</p>
+              <p>Minggu pukul 07:30 WIB</p>
             </div>
             <!-- Grid column -->
 
@@ -59,8 +59,8 @@
 
       <!-- Copyright -->
       <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-        © 2021 Copyright:
-        <a class="text-reset fw-bold" href="#home">Stasi Bangkam</a>
+        © 2023 Copyright:
+        <a class="text-reset fw-bold" href="#home">Paroki Mempawah</a>
       </div>
       <!-- Copyright -->
     </footer>

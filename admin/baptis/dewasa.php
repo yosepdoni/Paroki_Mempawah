@@ -9,7 +9,7 @@
   
 <div class="col-md-12 mt-5">
     <div class="container">
-    <a class="btn btn-primary mt-3 mb-2" href="index.php?p=form_jadwal"><i class="fa fa-plus"></i> Tambah Jadwal    
+    <!-- <a class="btn btn-primary mt-3 mb-2" href="index.php?p=form_jadwal"><i class="fa fa-plus"></i> Tambah Baptis-->
     </a>
      <!-- Formulir pencarian berdasarkan tanggal -->
      <form action="../admin/cetak/cetak_tgl_dewasa.php" method="get" class="mb-3">
@@ -34,14 +34,14 @@
           <table id="tabel-data" class="table table-striped table-bordered" width="100%">
             <thead class="thead-light">
               <tr>
-                <th scope="col">ID</th>
+                <th scope="col">No</th>
                 <th scope="col">Nama</th>
                 <th scope="col">Tanggal Lahir</th>
                 <th scope="col">Tempat Lahir</th>
                 <th scope="col">Alamat</th>
                 <th scope="col">Telepon</th>
-                <th scope="col">Tanggal Baptis</th>
-                <th scope="col">Katekumen</th>
+                <!-- <th scope="col">Bukti Katekumen</th> -->
+                <th scope="col">Akta</th>
                 <th scope="col">Aksi</th>
               </tr>
             </thead>
@@ -49,7 +49,7 @@
             <?php
                   
                   include "../koneksi.php";
-                  $data = mysqli_query($conn, "select * from baptis");
+                  $data = mysqli_query($conn, "select * from baptis_dewasa");
                   $no = 1;
                   while($result = mysqli_fetch_array($data)){
                 ?>
@@ -60,8 +60,7 @@
                 <td><?php echo $result['tempat_lahir']; ?></td>
                 <td><?php echo $result['alamat']; ?></td>
                 <td><?php echo $result['telepon']; ?></td>
-                <td><?php echo date('d F Y', strtotime($result['tgl_baptis'])); ?></td>
-                <td><?php echo $result['katekumen']; ?></td>
+                <td><?php echo $result['akta']; ?></td>
                 <td>
                      <a href="index.php?p=edit_jadwal&id=<?=$result['id'];?>" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>&nbsp;
                      <a onclick="return confirm('apakah anda yakin? ');" href="index.php?p=ac_delete_jadwal&id=<?=$result['id'] ?>" class="btn btn-danger btn-sm"><i class= "fa fa-trash">&nbsp;</i></a>

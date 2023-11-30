@@ -23,14 +23,23 @@ include '../session.php';
                     <a class="nav-link text-light fs-6" href="index.php?p=jadwal">Jadwal</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link text-light fs-6" href="index.php?p=katekumen">Katekumen</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link text-light fs-6" href="index.php?p=baptis_dewasa">Baptis Dewasa</a>
                 </li>
+                <li class="nav-item">
+                <a class="nav-link text-light fs-6" href="index.php?p=baptis_bayi">Baptis Bayi</a>
+            </li>
             </ul>';
         }else {
             echo '
             <li class="nav-item">
-                    <a class="nav-link active text-light fs-6" aria-current="page" href="index.php?p=absen">Absen</a>
+                    <a class="nav-link active text-light fs-6" aria-current="page" href="./">Dashboard</a>
                 </li>
+                <li class="nav-item">
+                <a class="nav-link active text-light fs-6" aria-current="page" href="index.php?p=absen">Absen</a>
+            </li>
                 </ul>';
         }
             

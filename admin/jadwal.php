@@ -11,8 +11,9 @@
                 <th scope="col">Hari</th>
                 <th scope="col">Tanggal</th>
                 <th scope="col">Waktu</th>
+                <th scope="col">Tempat</th>
                 <th scope="col">Perayaan</th>
-                <th scope="col">Keterangan</th>
+                <th scope="col">Pastor</th>
                 <th scope="col">Aksi</th>
               </tr>
             </thead>
@@ -27,11 +28,12 @@
                 <td><?php echo $result['hari']; ?></td>
                 <td><?php echo date('d F Y', strtotime($result['tgl'])); ?></td>
                 <td><?php echo $result['waktu']; ?></td>
+                <td><?php echo $result['tempat']; ?></td>
                 <td><?php echo $result['perayaan']; ?></td>
-                <td><?php echo $result['ket']; ?></td>
+                <td><?php echo $result['pastor']; ?></td>
                 <td>
-                     <a href="index.php?p=edit_jadwal&id=<?=$result['id'];?>" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>&nbsp;
-                     <a onclick="return confirm('apakah anda yakin? ');" href="index.php?p=ac_delete_jadwal&id=<?=$result['id'] ?>" class="btn btn-danger btn-sm"><i class= "fa fa-trash">&nbsp;</i></a>
+                     <a href="index.php?p=edit_jadwal&id=<?=$result['id_jadwal'];?>" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>&nbsp;
+                     <a onclick="return confirm('apakah anda yakin? ');" href="index.php?p=ac_delete_jadwal&id=<?=$result['id_jadwal'] ?>" class="btn btn-danger btn-sm"><i class= "fa fa-trash">&nbsp;</i></a>
                     </td>
               </tr>
               <?php

@@ -18,8 +18,8 @@
                 <th scope="col">Tanggal</th>
                 <th scope="col">Waktu</th>
                 <th scope="col">Tempat</th>
-                <th scope="col">Pastor</th>
                 <th scope="col">Perayaan</th>
+                <th scope="col">Pastor</th>
               </tr>
             </thead>
             <tbody>
@@ -33,8 +33,9 @@
                 <td><?php echo $result['hari']; ?></td>
                 <td><?php echo date('d F Y', strtotime($result['tgl'])); ?></td>
                 <td><?php echo $result['waktu']; ?></td>
+                <td><?php echo $result['tempat']; ?></td>
                 <td><?php echo $result['perayaan']; ?></td>
-                <td><?php echo $result['ket']; ?></td>
+                <td><?php echo $result['pastor']; ?></td>
               </tr>
               <?php
                   

@@ -64,6 +64,12 @@
         else if($page=="baptis_dewasa"){
           include "baptis/dewasa.php";
         }
+        else if($page=="baptis_bayi"){
+          include "baptis/bayi.php";
+        }
+        else if($page=="katekumen"){
+          include "baptis/katekumen.php";
+        }
         else if($page=="form_jadwal"){
           include "form_jadwal.php";
         } 
