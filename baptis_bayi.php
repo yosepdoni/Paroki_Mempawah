@@ -1,21 +1,51 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Form Pendaftaran Sakramen Baptis</title>
     <!-- Tautan ke file CSS Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
+
 <body>
-<?php
-include 'session.php';
-?>
+    <?php
+    include 'session.php';
+    ?>
+
     <div class="container p-5 mt-5">
-        <h1 class="text-center">Form Pendaftaran Sakramen Baptis Bayi</h1>
-        <form action="./aksi/post_bayi.php" method="POST">
+        <h1 class="text-center">Form Pendaftaran Baptis Bayi</h1>
+
+
+        <form action="./aksi/post_bayi.php" method="POST" enctype="multipart/form-data">
             <div class="form-group">
-                <label for="nama_baptis">Nama Calon Baptis:</label>
-                <input type="text" class="form-control" id="nama_baptis" name="nama" required>
-            </div>
+    <label for="nama_bayi">Nama Calon Baptis:</label>
+    <?php
+    // Periksa apakah session 'email' sudah di-set
+    if (isset($_SESSION['email'])) {
+        // Ambil email dari session
+        $userId = $_SESSION['id_user'];
+
+         // Lakukan kueri untuk mendapatkan data user berdasarkan id_user
+    $query = mysqli_prepare($conn, "SELECT * FROM user WHERE id_user = ?");
+    mysqli_stmt_bind_param($query, 'i', $userId);
+    mysqli_stmt_execute($query);
+    $result = mysqli_stmt_get_result($query);
+
+    // Periksa apakah hasil kueri tidak kosong
+    if ($result && $data = mysqli_fetch_assoc($result)) {
+        ?>
+            <input type="hidden" class="form-control" name="id_user" value="<?php echo $userId ?>" required>
+            <input type="text" class="form-control" id="nama_bayi" name="nama" value="<?php echo $data['nama']; ?>" required>
+            <?php
+    } else {
+        echo "Data tidak ditemukan.";
+    }
+} else {
+    echo "Session 'id_user' tidak diatur.";
+}
+?> 
+</div>
+
 
             <div class="form-group">
                 <label for="tanggal_lahir">Tanggal Lahir:</label>
@@ -28,53 +58,54 @@ include 'session.php';
             </div>
 
             <div class="form-group">
-                <label for="nama_orang_tua">Nama Orang Tua:</label>
-                <input type="text" class="form-control" id="nama_orang_tua" name="nama_ortu" required>
-            </div>
-
-            <div class="form-group">
                 <label for="alamat">Alamat:</label>
                 <input type="text" class="form-control" id="alamat" name="alamat" required>
             </div>
 
             <div class="form-group">
-                <label for="telepon">telepon:</label>
-                <input type="number" class="form-control" id="telepon" name="telepon" required>
-            </div>
-
-            <!-- <div class="form-group">
-                <label for="paroki">Paroki:</label>
-                <input type="text" class="form-control" id="paroki" name="paroki" required>
+                <label for="alamat">Nama Ayah:</label>
+                <input type="text" class="form-control" id="alamat" name="alamat" required>
             </div>
 
             <div class="form-group">
-                <label for="pastor_paroki">Pastor Paroki:</label>
-                <input type="text" class="form-control" id="pastor_paroki" name="pastor_paroki" required>
-            </div> -->
+                <label for="alamat">Nama Ibu:</label>
+                <input type="text" class="form-control" id="alamat" name="alamat" required>
+            </div>
 
-            <!-- <div class="form-group">
-                <label for="tanggal_baptis">Tanggal Baptis (jika sudah ditentukan):</label>
-                <input type="date" class="form-control" id="tanggal_baptis" name="tanggal_baptis">
-            </div> -->
+            <div class="form-group">
+                <label for="nomor_telepon">Nomor Telepon:</label>
+                <input type="tel" class="form-control" id="nomor_telepon" name="telepon" required>
+            </div>
 
+            <div class="form-group">
+                <label for="gambar">Upload Surat Nikah:</label>
+                <input type="file" name="gambar" name="gambar" id="gambar">
+            </div>
+
+            <div class="form-group">
+                <label for="gambar">Upload Akta:</label>
+                <input type="file" name="gambar" name="gambar" id="gambar">
+            </div>
+                    
             <div class="text-center">
                 <button type="submit" class="btn btn-primary">Daftar</button>
             </div>
-            <div class="col mt-5">
-                <h5>Persyaratan Baptis Bayi</h5>
-                <ul>
-                    <li>Orang tua atau wali dari bayi yang akan dibaptis harus menjadi anggota aktif dari gereja atau paroki yang bersangkutan.</li>
-                    <li>Orang tua atau wali harus menghadiri kelas persiapan baptis untuk memahami makna dan tugas yang berkaitan dengan baptis bayi.</li>
-                    <li>Orang tua atau wali harus memilih wali baptis yang akan mendampingi bayi dalam sakramen baptis.</li>
-                    <li>Dokumen resmi seperti akta kelahiran bayi harus diserahkan kepada gereja atau paroki untuk proses administratif.</li>
-                </ul>
+
+        <div class="col mt-5">
+        <h5>Persyaratan Baptis Bayi</h5>
+            <ul>
+                <li>Orang tua atau wali dari bayi yang akan dibaptis harus menjadi anggota aktif dari gereja atau paroki yang bersangkutan.</li>
+                <li>Orang tua atau wali harus menghadiri kelas persiapan baptis untuk memahami makna dan tugas yang berkaitan dengan baptis bayi.</li>
+                <li>Orang tua atau wali harus memilih wali baptis yang akan mendampingi bayi dalam sakramen baptis.</li>
+                <li>Dokumen resmi seperti akta kelahiran bayi harus diserahkan kepada gereja atau paroki untuk proses administratif.</li>
+            </ul>
             </div>
-        </form>
-    </div>
+        </div>
 
     <!-- Tautan ke file JavaScript Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>

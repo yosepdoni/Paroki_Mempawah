@@ -46,7 +46,7 @@
               <h6 class="text-uppercase fw-bold mb-4">Kontak</h6>
               <p>
                 <i class="fas fa-envelope "></i>
-                stasibangkam@gmail.com
+                parokimempawah@gmail.com
               </p>
               <p><i class="fas fa-phone "></i> + 62 857 5200 5641</p>
             </div>

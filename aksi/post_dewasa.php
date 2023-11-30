@@ -4,7 +4,7 @@ include '../koneksi.php';
 
 // Menangkap data yang dikirim dari form
 $id_user = $_POST['id_user'];
-$jenis_baptis = 'dewasa';
+// $jenis_baptis = 'dewasa';
 $nama_baptis = $_POST['nama'];
 $tanggal_lahir = $_POST['tgl_lahir'];
 $tempat_lahir = $_POST['tempat_lahir'];
