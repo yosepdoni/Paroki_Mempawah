@@ -41,6 +41,7 @@
                       <li><a class="dropdown-item" href="index.php?p=katekumen">Katekumen</a></li>
                       <li><a class="dropdown-item" href="index.php?p=baptis_dewasa">Baptis Dewasa</a></li>
                       <li><a class="dropdown-item" href="index.php?p=baptis_bayi">Baptis Bayi</a></li>
+                      <li><a class="dropdown-item" href="index.php?p=pengumuman">Pengumuman</a></li>
                     </ul>
                   </li>
                     ';

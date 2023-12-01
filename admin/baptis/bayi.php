@@ -61,10 +61,23 @@
                 <td><?php echo $result['nama_ayah']; ?></td>
                 <td><?php echo $result['nama_ibu']; ?></td>
                 <td><?php echo $result['telepon']; ?></td>
+                    
+                
                 <td>
-                     <a href="index.php?p=edit_jadwal&id=<?=$result['id'];?>" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>&nbsp;
-                     <a onclick="return confirm('apakah anda yakin? ');" href="index.php?p=ac_delete_jadwal&id=<?=$result['id'] ?>" class="btn btn-danger btn-sm"><i class= "fa fa-trash">&nbsp;</i></a>
-                    </td>
+                  <form action="proses_terima.php" method="POST">
+                    <input type="hidden" name="id" value="<?=$result['id'];?>">
+                    <button type="submit" name="terima" class="btn btn-success btn-sm">Terima</button>
+                  </form>
+                  <form action="proses_tolak.php" method="POST">
+                    <input type="hidden" name="id" value="<?=$result['id'];?>">
+                    <button type="submit" name="tolak" class="btn btn-danger btn-sm">Tolak</button>
+                  </form>
+                </td>
+
+                <!-- <td>
+                  <a href="index.php?p=edit_jadwal&id=<?=$result['id'];?>" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>&nbsp;
+                  <a onclick="return confirm('apakah anda yakin? ');" href="index.php?p=ac_delete_jadwal&id=<?=$result['id'] ?>" class="btn btn-danger btn-sm"><i class= "fa fa-trash">&nbsp;</i></a>
+                </td> -->
               </tr>
               <?php
                   

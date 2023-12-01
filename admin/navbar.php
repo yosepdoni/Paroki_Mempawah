@@ -29,8 +29,8 @@ include '../session.php';
                     <a class="nav-link text-light fs-6" href="index.php?p=baptis_dewasa">Baptis Dewasa</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link text-light fs-6" href="index.php?p=baptis_bayi">Baptis Bayi</a>
-            </li>
+                    <a class="nav-link text-light fs-6" href="index.php?p=baptis_bayi">Baptis Bayi</a>
+                </li>
             </ul>';
         }else {
             echo '

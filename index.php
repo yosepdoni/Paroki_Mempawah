@@ -65,6 +65,8 @@
         include "katekumen.php";
       } else if ($page == "persyaratan") {
         include "persyaratan.php";
+      } else if ($page == "pengumuman") {
+        include "pengumuman.php";
       }
       ?>
     </section>
