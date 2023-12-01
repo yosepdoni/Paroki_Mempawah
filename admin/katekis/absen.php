@@ -63,8 +63,6 @@
                 <?php }
                 ?>
 
-          s
-
                 <td><?= $result['total_presensi']; ?></td>
                 <td>
                   <button type="submit" name="tambah" class="btn btn-info btn-sm"> <i class="fa fa-plus"></i> </button>
