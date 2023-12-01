@@ -61,6 +61,9 @@
         else if($page=="absen"){
           include "katekis/absen.php";
         }
+        else if($page=="detail_absen"){
+          include "katekis/detail_absen.php";
+        }
         else if($page=="baptis_dewasa"){
           include "baptis/dewasa.php";
         }

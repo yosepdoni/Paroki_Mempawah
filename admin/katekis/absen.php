@@ -15,61 +15,65 @@
             <th scope="col">No</th>
             <th scope="col">Nama</th>
             <th scope="col">Jumlah Presensi</th>
-            <th scope="col">Tanggal Presensi</th>
             <th scope="col">Aksi</th>
           </tr>
         </thead>
         <tbody>
-        <?php
-include "../koneksi.php";
+          <?php
+          include "../koneksi.php";
+          if (isset($_POST['id_user'])) {
+            $UserId = $_POST['id_user'];
 
-if (isset($_POST['id_user'])) {
-    $UserId = $_POST['id_user'];
-    
-    // Mendapatkan tanggal presensi
-    $tanggalPresensi = date('Y-m-d'); // Mendapatkan tanggal saat ini
-    $jumlahPresensi = '1';
+            // Mendapatkan tanggal presensi
+            $tanggalPresensi = date('Y-m-d'); // Mendapatkan tanggal saat ini
+            $jumlahPresensi = '1';
 
-    // Memasukkan data ke tabel presensi tanpa mengubah jumlah_presensi yang ada
-    
-    mysqli_query($conn,"insert into presensi values('','$UserId','$tanggalPresensi','$jumlahPresensi')");
-    echo "<script>alert('Presensi berhasil ditambahkan'); window.location.href='index.php?p=absen'</script>";
-    }
+            // Memasukkan data ke tabel presensi tanpa mengubah jumlah_presensi yang ada
 
-        
-    $data = mysqli_query($conn, "SELECT p.id_user, u.nama, SUM(p.jumlah_presensi) as total_presensi
+            mysqli_query($conn, "insert into presensi values('','$UserId','$tanggalPresensi','$jumlahPresensi')");
+            echo "<script>alert('Presensi berhasil ditambahkan'); window.location.href='index.php?p=absen'</script>";
+          }
+
+
+          $data = mysqli_query($conn, "SELECT p.id_user, u.nama, p.tgl_presensi, SUM(p.jumlah_presensi) as total_presensi 
     FROM presensi p
-    JOIN user u ON p.id_user = u.id_user
+    JOIN user u ON p.id_user = u.id_user 
     GROUP BY p.id_user");
-$no = 1;
+          $no = 1;
 
-while ($result = mysqli_fetch_array($data)) {
-  ?>
+          while ($result = mysqli_fetch_array($data)) {
+          ?>
             <tr>
-             
-                <form method="POST">
-            <td><?= $no++; ?></td>
-          <input type="hidden" name="id_user" value="<?= $result['id_user']; ?>">
-          <input type="hidden" name="tgl_presensi">
-          <input type="hidden" name="jumlah_presensi">
+
+              <form method="POST">
+                <td><?= $no++; ?></td>
+                <input type="hidden" name="id_user" value="<?= $result['id_user']; ?>">
+                <input type="hidden" name="tgl_presensi">
+                <input type="hidden" name="jumlah_presensi">
                 <p hidden>
-                <?php $UserId = $result['id_user'] ?>
+                  <?php $UserId = $result['id_user'] ?>
                 </p>
-                
+
                 <?php
-                $query = mysqli_query($conn,"SELECT * FROM user where id_user='$UserId'");
-                while ($da = mysqli_fetch_array($query)){
-               ?>
+                $query = mysqli_query($conn, "SELECT * FROM user where id_user='$UserId'");
+                while ($da = mysqli_fetch_array($query)) {
+                ?>
                   <td><?php echo $da['nama']; ?></td>
 
                 <?php }
-                 ?>
+                ?>
+
+          s
+
                 <td><?= $result['total_presensi']; ?></td>
-                <!-- <td><?php echo date('d F Y'); ?></td> -->
-                <td><?php echo date('d F Y', strtotime($time)); ?></td>                
                 <td>
-                      <button type="submit" name="tambah" class="btn btn-info btn-sm"> <i class="fa fa-plus"></i> </button>
-                      </td>
+                  <button type="submit" name="tambah" class="btn btn-info btn-sm"> <i class="fa fa-plus"></i> </button>
+                  <?php if ($result['total_presensi'] > 0) : ?>
+                    <a class="btn btn-warning btn-sm" href="index.php?p=detail_absen&id=<?= $result['id_user']; ?>">Detail</a>
+                  <?php else : ?>
+                    <a class="btn btn-warning btn-sm" href="javascript:void(0);" disabled>Detail</a>
+                  <?php endif; ?>
+                </td>
               </form>
             </tr>
           <?php
