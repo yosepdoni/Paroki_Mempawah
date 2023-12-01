@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2023 at 05:42 AM
+-- Generation Time: Dec 01, 2023 at 07:05 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -29,16 +29,22 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `baptis_bayi` (
   `id_baptis` int(5) NOT NULL,
+  `id_user` int(5) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `tgl_lahir` date NOT NULL,
   `tempat_lahir` varchar(50) NOT NULL,
   `alamat` varchar(50) NOT NULL,
   `nama_ayah` varchar(50) NOT NULL,
   `nama_ibu` varchar(50) NOT NULL,
-  `telepon` varchar(12) NOT NULL,
-  `akta` text NOT NULL,
-  `surat_nikah` text NOT NULL
+  `telepon` varchar(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `baptis_bayi`
+--
+
+INSERT INTO `baptis_bayi` (`id_baptis`, `id_user`, `nama`, `tgl_lahir`, `tempat_lahir`, `alamat`, `nama_ayah`, `nama_ibu`, `telepon`) VALUES
+(1, 6, 'Ivana', '2023-11-30', 'Mempawah', 'Siantan', 'A', 'B', '085752005641');
 
 -- --------------------------------------------------------
 
@@ -48,26 +54,20 @@ CREATE TABLE `baptis_bayi` (
 
 CREATE TABLE `baptis_dewasa` (
   `id_baptis` int(5) NOT NULL,
-  `id_katekumen` int(5) NOT NULL,
+  `id_user` int(5) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `tgl_lahir` date NOT NULL,
   `tempat_lahir` varchar(50) NOT NULL,
   `alamat` varchar(50) NOT NULL,
-  `telepon` varchar(12) NOT NULL,
-  `bukti_katekumen` text NOT NULL,
-  `akta` text NOT NULL
+  `telepon` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `baptis_dewasa`
 --
 
-INSERT INTO `baptis_dewasa` (`id_baptis`, `id_katekumen`, `nama`, `tgl_lahir`, `tempat_lahir`, `alamat`, `telepon`, `bukti_katekumen`, `akta`) VALUES
-(7, 0, 'Daniel', '2023-11-13', 'Tayan', 'hilir', '2147483647', '', ''),
-(8, 0, 'Suhendra', '2023-11-13', 'Pontianak', 'Kota baru', '2147483647', 'IMG_20230323_151705.jpg', ''),
-(9, 0, 'azril', '2023-11-13', 'Pontianak', 'Bangkam', '2147483647', '', ''),
-(11, 0, 'Daniel', '2023-11-13', 'Mempawah', 'Bangkam', '2147483647', 'IMG_20230323_223705.jpg', ''),
-(12, 0, 'azril', '2023-11-13', 'Pontianak', 'hilir', '2147483647', '', '');
+INSERT INTO `baptis_dewasa` (`id_baptis`, `id_user`, `nama`, `tgl_lahir`, `tempat_lahir`, `alamat`, `telepon`) VALUES
+(15, 4, 'gerry topher', '2023-11-29', 'Tayan', 'Bangkam', '085752005641');
 
 -- --------------------------------------------------------
 
@@ -114,7 +114,7 @@ CREATE TABLE `katekumen` (
 --
 
 INSERT INTO `katekumen` (`id_katekumen`, `id_user`, `nama`, `tgl_lahir`, `tempat_lahir`, `alamat`, `telepon`) VALUES
-(15, 4, 'gerry topher', '2023-11-29', 'Tayan', 'Bangkam', '085752005641');
+(18, 4, 'gerry topher', '2001-11-30', 'Tayan', 'Tayan', '0857520056');
 
 -- --------------------------------------------------------
 
@@ -147,9 +147,13 @@ CREATE TABLE `presensi` (
 --
 
 INSERT INTO `presensi` (`id_presensi`, `id_user`, `tgl_presensi`, `jumlah_presensi`) VALUES
-(3, 4, '0000-00-00', '0'),
 (4, 4, '2023-11-28', '1'),
-(5, 4, '2023-11-29', '1');
+(5, 4, '2023-11-29', '1'),
+(7, 4, '2023-11-30', '1'),
+(8, 4, '2023-11-30', '1'),
+(9, 4, '2023-11-30', '1'),
+(10, 4, '0000-00-00', ''),
+(11, 4, '0000-00-00', '');
 
 -- --------------------------------------------------------
 
@@ -230,13 +234,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `baptis_bayi`
 --
 ALTER TABLE `baptis_bayi`
-  MODIFY `id_baptis` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_baptis` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `baptis_dewasa`
 --
 ALTER TABLE `baptis_dewasa`
-  MODIFY `id_baptis` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_baptis` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `jadwal`
@@ -248,7 +252,7 @@ ALTER TABLE `jadwal`
 -- AUTO_INCREMENT for table `katekumen`
 --
 ALTER TABLE `katekumen`
-  MODIFY `id_katekumen` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_katekumen` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `pengumuman`
@@ -260,7 +264,7 @@ ALTER TABLE `pengumuman`
 -- AUTO_INCREMENT for table `presensi`
 --
 ALTER TABLE `presensi`
-  MODIFY `id_presensi` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_presensi` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `user`
