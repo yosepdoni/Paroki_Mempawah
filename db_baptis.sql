@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2023 at 07:05 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.0.28
+-- Waktu pembuatan: 04 Des 2023 pada 16.41
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `baptis_bayi`
+-- Struktur dari tabel `baptis_bayi`
 --
 
 CREATE TABLE `baptis_bayi` (
@@ -36,20 +36,24 @@ CREATE TABLE `baptis_bayi` (
   `alamat` varchar(50) NOT NULL,
   `nama_ayah` varchar(50) NOT NULL,
   `nama_ibu` varchar(50) NOT NULL,
-  `telepon` varchar(12) NOT NULL
+  `telepon` varchar(12) NOT NULL,
+  `akta` text NOT NULL,
+  `surat_nikah` text NOT NULL,
+  `status` varchar(20) NOT NULL,
+  `keterangan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `baptis_bayi`
+-- Dumping data untuk tabel `baptis_bayi`
 --
 
-INSERT INTO `baptis_bayi` (`id_baptis`, `id_user`, `nama`, `tgl_lahir`, `tempat_lahir`, `alamat`, `nama_ayah`, `nama_ibu`, `telepon`) VALUES
-(1, 6, 'Ivana', '2023-11-30', 'Mempawah', 'Siantan', 'A', 'B', '085752005641');
+INSERT INTO `baptis_bayi` (`id_baptis`, `id_user`, `nama`, `tgl_lahir`, `tempat_lahir`, `alamat`, `nama_ayah`, `nama_ibu`, `telepon`, `akta`, `surat_nikah`, `status`, `keterangan`) VALUES
+(3, 6, 'Ivana', '2023-12-04', 'bangkam', 'siantan', 'QA', 'QB', '0856757575', 'keep.PNG', 'pay.jpg', 'Belum dikonfirmasi', 'Belum dikonfirmasi');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `baptis_dewasa`
+-- Struktur dari tabel `baptis_dewasa`
 --
 
 CREATE TABLE `baptis_dewasa` (
@@ -59,20 +63,23 @@ CREATE TABLE `baptis_dewasa` (
   `tgl_lahir` date NOT NULL,
   `tempat_lahir` varchar(50) NOT NULL,
   `alamat` varchar(50) NOT NULL,
-  `telepon` varchar(15) NOT NULL
+  `telepon` varchar(15) NOT NULL,
+  `akta` text NOT NULL,
+  `status` varchar(20) NOT NULL,
+  `keterangan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `baptis_dewasa`
+-- Dumping data untuk tabel `baptis_dewasa`
 --
 
-INSERT INTO `baptis_dewasa` (`id_baptis`, `id_user`, `nama`, `tgl_lahir`, `tempat_lahir`, `alamat`, `telepon`) VALUES
-(15, 4, 'gerry topher', '2023-11-29', 'Tayan', 'Bangkam', '085752005641');
+INSERT INTO `baptis_dewasa` (`id_baptis`, `id_user`, `nama`, `tgl_lahir`, `tempat_lahir`, `alamat`, `telepon`, `akta`, `status`, `keterangan`) VALUES
+(22, 4, 'gerry topher', '2023-12-01', 'Tayan Pulau', 'Pontianak Timur', '85753613718', 'keep.PNG', 'Belum dikonfirmasi', 'Belum dikonfirmasi');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jadwal`
+-- Struktur dari tabel `jadwal`
 --
 
 CREATE TABLE `jadwal` (
@@ -86,7 +93,7 @@ CREATE TABLE `jadwal` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `jadwal`
+-- Dumping data untuk tabel `jadwal`
 --
 
 INSERT INTO `jadwal` (`id_jadwal`, `hari`, `tgl`, `waktu`, `tempat`, `perayaan`, `pastor`) VALUES
@@ -96,7 +103,7 @@ INSERT INTO `jadwal` (`id_jadwal`, `hari`, `tgl`, `waktu`, `tempat`, `perayaan`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `katekumen`
+-- Struktur dari tabel `katekumen`
 --
 
 CREATE TABLE `katekumen` (
@@ -110,16 +117,17 @@ CREATE TABLE `katekumen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `katekumen`
+-- Dumping data untuk tabel `katekumen`
 --
 
 INSERT INTO `katekumen` (`id_katekumen`, `id_user`, `nama`, `tgl_lahir`, `tempat_lahir`, `alamat`, `telepon`) VALUES
-(18, 4, 'gerry topher', '2001-11-30', 'Tayan', 'Tayan', '0857520056');
+(20, 4, 'gerry topher', '2023-12-01', 'Tayan Pulau', 'Pontianak Timur', '85753613718'),
+(21, 5, 'suhendra montek', '2023-12-01', 'kobar', 'Pontianak Timur', '85753613718');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengumuman`
+-- Struktur dari tabel `pengumuman`
 --
 
 CREATE TABLE `pengumuman` (
@@ -132,7 +140,7 @@ CREATE TABLE `pengumuman` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `presensi`
+-- Struktur dari tabel `presensi`
 --
 
 CREATE TABLE `presensi` (
@@ -143,22 +151,23 @@ CREATE TABLE `presensi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `presensi`
+-- Dumping data untuk tabel `presensi`
 --
 
 INSERT INTO `presensi` (`id_presensi`, `id_user`, `tgl_presensi`, `jumlah_presensi`) VALUES
-(4, 4, '2023-11-28', '1'),
-(5, 4, '2023-11-29', '1'),
-(7, 4, '2023-11-30', '1'),
-(8, 4, '2023-11-30', '1'),
-(9, 4, '2023-11-30', '1'),
-(10, 4, '0000-00-00', ''),
-(11, 4, '0000-00-00', '');
+(18, 4, '0000-00-00', ''),
+(25, 4, '2023-12-01', '1'),
+(26, 4, '2023-12-01', '1'),
+(27, 5, '0000-00-00', ''),
+(28, 5, '2023-12-01', '1'),
+(29, 4, '2023-12-04', '1'),
+(30, 4, '2023-12-04', '1'),
+(31, 4, '2023-12-04', '1');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -170,7 +179,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id_user`, `nama`, `email`, `password`, `level`) VALUES
@@ -185,89 +194,89 @@ INSERT INTO `user` (`id_user`, `nama`, `email`, `password`, `level`) VALUES
 --
 
 --
--- Indexes for table `baptis_bayi`
+-- Indeks untuk tabel `baptis_bayi`
 --
 ALTER TABLE `baptis_bayi`
   ADD PRIMARY KEY (`id_baptis`);
 
 --
--- Indexes for table `baptis_dewasa`
+-- Indeks untuk tabel `baptis_dewasa`
 --
 ALTER TABLE `baptis_dewasa`
   ADD PRIMARY KEY (`id_baptis`);
 
 --
--- Indexes for table `jadwal`
+-- Indeks untuk tabel `jadwal`
 --
 ALTER TABLE `jadwal`
   ADD PRIMARY KEY (`id_jadwal`);
 
 --
--- Indexes for table `katekumen`
+-- Indeks untuk tabel `katekumen`
 --
 ALTER TABLE `katekumen`
   ADD PRIMARY KEY (`id_katekumen`);
 
 --
--- Indexes for table `pengumuman`
+-- Indeks untuk tabel `pengumuman`
 --
 ALTER TABLE `pengumuman`
   ADD PRIMARY KEY (`id_pengumuman`);
 
 --
--- Indexes for table `presensi`
+-- Indeks untuk tabel `presensi`
 --
 ALTER TABLE `presensi`
   ADD PRIMARY KEY (`id_presensi`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `baptis_bayi`
+-- AUTO_INCREMENT untuk tabel `baptis_bayi`
 --
 ALTER TABLE `baptis_bayi`
-  MODIFY `id_baptis` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_baptis` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `baptis_dewasa`
+-- AUTO_INCREMENT untuk tabel `baptis_dewasa`
 --
 ALTER TABLE `baptis_dewasa`
-  MODIFY `id_baptis` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_baptis` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT for table `jadwal`
+-- AUTO_INCREMENT untuk tabel `jadwal`
 --
 ALTER TABLE `jadwal`
   MODIFY `id_jadwal` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `katekumen`
+-- AUTO_INCREMENT untuk tabel `katekumen`
 --
 ALTER TABLE `katekumen`
-  MODIFY `id_katekumen` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_katekumen` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT for table `pengumuman`
+-- AUTO_INCREMENT untuk tabel `pengumuman`
 --
 ALTER TABLE `pengumuman`
   MODIFY `id_pengumuman` int(5) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `presensi`
+-- AUTO_INCREMENT untuk tabel `presensi`
 --
 ALTER TABLE `presensi`
-  MODIFY `id_presensi` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_presensi` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
