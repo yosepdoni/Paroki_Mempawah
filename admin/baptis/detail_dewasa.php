@@ -18,55 +18,91 @@
                                 <!-- /.box-header -->
 
                                 <div class="box-body">
-                                    <!-- <?php
-
-                                            include '../koneksi.php';
-                                            $id = $_GET['id'];
-                                            $data = mysqli_query($conn, "SELECT * FROM baptis_dewasa WHERE id_user='$id'");
-                                            while ($da = mysqli_fetch_array($data)) {
-                                            ?> -->
-                                    <form class="form-horizontal" method="POST" action="order/updateinfo.php">
-                                        <div class="box-body">
-                                            <input type="hidden" name="id_pesanan" value="<?= $da['id_pengguna']; ?>">
-                                            <table class="table">
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">Nama</th>
-                                                        <td>:</td>
-                                                        <td> <?= $da['nama']; ?></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">Tanggal Lahir</th>
-                                                        <td>:</td>
-                                                        <td><?php echo date('d F Y', strtotime($da['tgl_lahir'])); ?></td>
-                                                        <!-- <td><?php echo date("d/m/Y", strtotime($da['tanggal_lahir'])); ?></td> -->
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">Tempat Lahir</th>
-                                                        <td>:</td>
-                                                        <td> <?= $da['tempat_lahir']; ?></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">Alamat</th>
-                                                        <td>:</td>
-                                                        <td> <?= $da['alamat']; ?></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">Telepon</th>
-                                                        <td>:</td>
-                                                        <td> <?= $da['telepon']; ?></td>
-                                                    </tr>
-                                                    <!-- <tr>
+                                    <?php
+                                    include '../koneksi.php';
+                                    if (isset($_POST['id_user'])) {
+                                      $UserId = $_POST['id_user'];
+                                      $status = $_POST['status'];
+                                      $keterangan = $_POST['keterangan'];
+                          
+                                      // Use UPDATE statement to modify existing record
+                                      $query = "UPDATE baptis_dewasa SET status='$status', keterangan='$keterangan' WHERE id_user='$UserId'";
+                          
+                                      // Execute the query
+                                      $result = mysqli_query($conn, $query);
+                          
+                                      if ($result) {
+                                        echo "<script>alert('Konfirmasi berhasil!'); window.location.href='index.php?p=baptis_dewasa'</script>";
+                                      } else {
+                                        echo "<script>alert('Gagal melakukan update. Error: " . mysqli_error($conn) . "');</script>";
+                                      }
+                                    }
+                                    $id = $_GET['id'];
+                                    $data = mysqli_query($conn, "SELECT * FROM baptis_dewasa WHERE id_user='$id'");
+                                    while ($da = mysqli_fetch_array($data)) {
+                                    ?>
+                                        <form class="form-horizontal" method="POST" action="">
+                                            <div class="box-body">
+                                            <!-- <input type="hidden" name="id_user" value="<?= $result['id_user']; ?>"> -->
+                                                <input type="hidden" name="id_user" value="<?= $da['id_user']; ?>">
+                                                <table class="table">
+                                                    <tbody>
+                                                        <tr>
+                                                            <th scope="row">Nama</th>
+                                                            <td>:</td>
+                                                            <td> <?= $da['nama']; ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">Tanggal Lahir</th>
+                                                            <td>:</td>
+                                                            <td><?php echo date('d F Y', strtotime($da['tgl_lahir'])); ?></td>
+                                                            <!-- <td><?php echo date("d/m/Y", strtotime($da['tanggal_lahir'])); ?></td> -->
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">Tempat Lahir</th>
+                                                            <td>:</td>
+                                                            <td> <?= $da['tempat_lahir']; ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">Alamat</th>
+                                                            <td>:</td>
+                                                            <td> <?= $da['alamat']; ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">Telepon</th>
+                                                            <td>:</td>
+                                                            <td> <?= $da['telepon']; ?></td>
+                                                        </tr>
+                                                        <!-- <tr>
                                                         <th scope="row">Bukti Pembayaran</th>
                                                         <td>:</td>
                                                         <td> <img src="../assets/image/<?= $da['bukti_bayar']; ?>" alt="gambar" width="70" height="70"> </td>
                                                     </tr> -->
-                                                </tbody>
-                                            </table>
-                                    </form>
-                                <?php
-                                            }
-                                ?>
+                                                        <tr>
+                                                            <th scope="row">Status</th>
+                                                            <td>:</td>
+                                                            <td>
+                                                                <select class="form-select mb-1" id="validationCustom04" name="status" required>
+                                                                    <option selected disabled value="">Pilih</option>
+                                                                    <option> Diterima </option>
+                                                                    <option> Ditolak </option>
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">Keterangan</th>
+                                                            <td>:</td>
+                                                            <td> <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="keterangan" placeholder="Keterangan"></textarea> </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="box-footer">
+                                                    <button type="submit" name="konfirmasi" class="btn btn-info float-right"> Konfirmasi</button>
+                                                </div>
+                                        </form>
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
                                 <!-- /.card -->
 

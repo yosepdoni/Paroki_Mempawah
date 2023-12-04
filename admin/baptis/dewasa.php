@@ -40,10 +40,6 @@
             <th scope="col">Tempat Lahir</th>
             <th scope="col">Alamat</th>
             <th scope="col">Telepon</th>
-            <!-- <th scope="col">Bukti Katekumen</th> -->
-            <!-- <th scope="col">Akta</th> -->
-            <!-- <th scope="col">Keterangan</th> -->
-            <th scope="col">Konfirmasi</th>
             <th scope="col">Aksi</th>
 
           </tr>
@@ -51,27 +47,6 @@
         <tbody>
           <?php
           include "../koneksi.php";
-
-          if (isset($_POST['id_user'])) {
-            $UserId = $_POST['id_user'];
-            $status = $_POST['status'];
-            $keterangan = $_POST['keterangan'];
-
-            // Use UPDATE statement to modify existing record
-            $query = "UPDATE baptis_dewasa SET status='$status', keterangan='$keterangan' WHERE id_user='$UserId'";
-
-            // Execute the query
-            $result = mysqli_query($conn, $query);
-
-            if ($result) {
-              echo "<script>alert('Konfirmasi berhasil!'); window.location.href='index.php?p=baptis_dewasa'</script>";
-            } else {
-              echo "<script>alert('Gagal melakukan update. Error: " . mysqli_error($conn) . "');</script>";
-            }
-          }
-
-
-          // include "../koneksi.php";
           $data = mysqli_query($conn, "select * from baptis_dewasa");
           $no = 1;
           while ($result = mysqli_fetch_array($data)) {
@@ -97,18 +72,8 @@
                 <td><?php echo $result['alamat']; ?></td>
                 <td><?php echo $result['telepon']; ?></td>
                 <!-- <td><?php echo $result['akta']; ?></td> -->
-              
-                <td>
-                <select class="form-select mb-1" id="validationCustom04" name="status" required>
-                    <option selected disabled value="">Pilih</option>
-                    <option> Diterima </option>
-                    <option> Ditolak </option>
-                  </select>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="keterangan" placeholder="Keterangan"></textarea>
-                </td>
                 <td>
                 <a class="btn btn-warning btn-sm" href="index.php?p=detail_dewasa&id=<?= $result['id_user']; ?>">Detail</a>
-                  <!-- <button type="submit" name="konfirmasi" class="btn btn-info fa fa-forward"></button> -->
                 </td>
               </form>
             </tr>
