@@ -67,6 +67,9 @@
         else if($page=="baptis_dewasa"){
           include "baptis/dewasa.php";
         }
+        else if($page=="detail_dewasa"){
+          include "baptis/detail_dewasa.php";
+        }
         else if($page=="baptis_bayi"){
           include "baptis/bayi.php";
         }
