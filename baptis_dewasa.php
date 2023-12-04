@@ -72,8 +72,8 @@ if (isset($_SESSION['id_user'])) {
             </div> -->
 
             <div class="form-group">
-                <label for="gambar">Upload bukti katekumen:</label>
-                <input type="file" name="gambar" name="gambar" id="gambar">
+                <label for="akta">Upload Akta:</label>
+                <input type="file" name="gambar" id="akta">
                 <!-- <input type="submit" value="Unggah Gambar" name="submit"> -->
             </div>
             <?php

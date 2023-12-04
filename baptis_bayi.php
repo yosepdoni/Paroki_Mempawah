@@ -77,14 +77,14 @@
                 <input type="tel" class="form-control" id="nomor_telepon" name="telepon" required>
             </div>
 
-            <!-- <div class="form-group">
-                <label for="gambar">Upload Surat Nikah:</label>
-                <input type="file" name="gambar" name="gambar" id="gambar">
+            <div class="form-group">
+                <label for="akta">Upload Akta:</label>
+                <input type="file" name="akta" id="akta">
             </div>
 
             <div class="form-group">
-                <label for="gambar">Upload Akta:</label>
-                <input type="file" name="gambar" name="gambar" id="gambar"> -->
+                <label for="surat_nikah">Upload Surat Nikah:</label>
+                <input type="file" name="gambar" id="surat_nikah">
             </div>
                     
             <div class="text-center">

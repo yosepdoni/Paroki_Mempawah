@@ -18,22 +18,23 @@ if (mysqli_num_rows($check_query) > 0) {
     $tempat_lahir = $_POST['tempat_lahir'];
     $alamat = $_POST['alamat'];
     $telp = $_POST['telepon'];
+    // $akta = $_POST['akta'];
 
-    mysqli_query($conn,"INSERT INTO baptis_dewasa VALUES ('','$id_user','$nama_baptis','$tanggal_lahir','$tempat_lahir','$alamat','$telp')");
+    $gambar = $_FILES['gambar'];
+    $gambarName = $gambar['name'];
+    $gambarTmpName = $gambar['tmp_name'];
+
+// Direktori penyimpanan gambar
+   $uploadDir = '../uploads/';
+
+// Memindahkan gambar ke direktori penyimpanan
+   move_uploaded_file($gambarTmpName, $uploadDir . $gambarName);
+
+
+    mysqli_query($conn,"INSERT INTO baptis_dewasa VALUES ('','$id_user','$nama_baptis','$tanggal_lahir','$tempat_lahir','$alamat','$telp','$gambarName')");
 
     echo "<script>alert('Pendaftaran berhasil disimpan'); window.location.href='../index.php?p=baptis_dewasa'</script>";
 }
-// Mengambil data file gambar
-// $gambar = $_FILES['gambar'];
-// $gambarName = $gambar['name'];
-// $gambarTmpName = $gambar['tmp_name'];
-
-// // Direktori penyimpanan gambar
-// $uploadDir = '../uploads/';
-
-// // Memindahkan gambar ke direktori penyimpanan
-// move_uploaded_file($gambarTmpName, $uploadDir . $gambarName);
-// '$gambarName' = digunakan apabila ingin mengupload gambar //
 
 // Memasukkan data ke database
 // <!-- mysqli_query($conn,"insert into baptis_dewasa values('','$id_user','$nama_baptis','$tanggal_lahir','$tempat_lahir','$alamat','$telp')"); -->

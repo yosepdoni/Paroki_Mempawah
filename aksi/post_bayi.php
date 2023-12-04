@@ -21,8 +21,24 @@ if (mysqli_num_rows($check_query) > 0) {
     $nama_ibu = $_POST['nama_ibu'];
     $telp = $_POST['telepon'];
 
+    $akta = $_FILES['akta'];
+    $aktaName = $akta['name'];
+    $aktaTmpName = $akta['tmp_name'];
+
+    $gambar = $_FILES['gambar'];
+    $gambarName = $gambar['name'];
+    $gambarTmpName = $gambar['tmp_name'];
+
+
+// Direktori penyimpanan gambar
+   $uploadDir = '../uploads/';
+
+// Memindahkan gambar ke direktori penyimpanan
+move_uploaded_file($aktaTmpName, $uploadDir . $aktaName);
+move_uploaded_file($gambarTmpName, $uploadDir . $gambarName);
+
     
-    mysqli_query($conn,"INSERT INTO baptis_bayi VALUES ('','$id_user','$nama_baptis','$tanggal_lahir','$tempat_lahir','$alamat','$nama_ayah','$nama_ibu','$telp')");
+    mysqli_query($conn,"INSERT INTO baptis_bayi VALUES ('','$id_user','$nama_baptis','$tanggal_lahir','$tempat_lahir','$alamat','$nama_ayah','$nama_ibu','$telp','$aktaName','$gambarName')");
 
     // echo $id_user;
     // echo $nama_baptis;
