@@ -18,6 +18,8 @@ if (mysqli_num_rows($check_query) > 0) {
     $tempat_lahir = $_POST['tempat_lahir'];
     $alamat = $_POST['alamat'];
     $telp = $_POST['telepon'];
+    $status ='Belum dikonfirmasi';
+    $keterangan ='Belum dikonfirmasi';
     // $akta = $_POST['akta'];
 
     $gambar = $_FILES['gambar'];
@@ -31,7 +33,7 @@ if (mysqli_num_rows($check_query) > 0) {
    move_uploaded_file($gambarTmpName, $uploadDir . $gambarName);
 
 
-    mysqli_query($conn,"INSERT INTO baptis_dewasa VALUES ('','$id_user','$nama_baptis','$tanggal_lahir','$tempat_lahir','$alamat','$telp','$gambarName')");
+    mysqli_query($conn,"INSERT INTO baptis_dewasa VALUES ('','$id_user','$nama_baptis','$tanggal_lahir','$tempat_lahir','$alamat','$telp','$gambarName','$status','$keterangan')");
 
     echo "<script>alert('Pendaftaran berhasil disimpan'); window.location.href='../index.php?p=baptis_dewasa'</script>";
 }

@@ -21,21 +21,21 @@
                                     <?php
                                     include '../koneksi.php';
                                     if (isset($_POST['id_user'])) {
-                                      $UserId = $_POST['id_user'];
-                                      $status = $_POST['status'];
-                                      $keterangan = $_POST['keterangan'];
-                          
-                                      // Use UPDATE statement to modify existing record
-                                      $query = "UPDATE baptis_dewasa SET status='$status', keterangan='$keterangan' WHERE id_user='$UserId'";
-                          
-                                      // Execute the query
-                                      $result = mysqli_query($conn, $query);
-                          
-                                      if ($result) {
-                                        echo "<script>alert('Konfirmasi berhasil!'); window.location.href='index.php?p=baptis_dewasa'</script>";
-                                      } else {
-                                        echo "<script>alert('Gagal melakukan update. Error: " . mysqli_error($conn) . "');</script>";
-                                      }
+                                        $UserId = $_POST['id_user'];
+                                        $status = $_POST['status'];
+                                        $keterangan = $_POST['keterangan'];
+
+                                        // Use UPDATE statement to modify existing record
+                                        $query = "UPDATE baptis_dewasa SET status='$status', keterangan='$keterangan' WHERE id_user='$UserId'";
+
+                                        // Execute the query
+                                        $result = mysqli_query($conn, $query);
+
+                                        if ($result) {
+                                            echo "<script>alert('Konfirmasi berhasil!'); window.location.href='index.php?p=baptis_dewasa'</script>";
+                                        } else {
+                                            echo "<script>alert('Gagal melakukan update. Error: " . mysqli_error($conn) . "');</script>";
+                                        }
                                     }
                                     $id = $_GET['id'];
                                     $data = mysqli_query($conn, "SELECT * FROM baptis_dewasa WHERE id_user='$id'");
@@ -43,7 +43,7 @@
                                     ?>
                                         <form class="form-horizontal" method="POST" action="">
                                             <div class="box-body">
-                                            <!-- <input type="hidden" name="id_user" value="<?= $result['id_user']; ?>"> -->
+                                                <!-- <input type="hidden" name="id_user" value="<?= $result['id_user']; ?>"> -->
                                                 <input type="hidden" name="id_user" value="<?= $da['id_user']; ?>">
                                                 <table class="table">
                                                     <tbody>
@@ -73,11 +73,15 @@
                                                             <td>:</td>
                                                             <td> <?= $da['telepon']; ?></td>
                                                         </tr>
-                                                        <!-- <tr>
-                                                        <th scope="row">Bukti Pembayaran</th>
-                                                        <td>:</td>
-                                                        <td> <img src="../assets/image/<?= $da['bukti_bayar']; ?>" alt="gambar" width="70" height="70"> </td>
-                                                    </tr> -->
+                                                        <tr>
+                                                            <th scope="row">Akta</th>
+                                                            <td>:</td>
+                                                            <td>
+                                                                <a href="../uploads/<?= $da['akta']; ?>" target="_blank">
+                                                                    <img src="../uploads/<?= $da['akta']; ?>" alt="gambar" width="70" height="70">
+                                                                </a>
+                                                            </td>
+                                                        </tr>
                                                         <tr>
                                                             <th scope="row">Status</th>
                                                             <td>:</td>

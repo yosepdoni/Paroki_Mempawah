@@ -35,6 +35,7 @@
   <body>
   <?php
     include "../koneksi.php";
+    session_start();
     include "navbar.php";
 
   ?>
@@ -72,6 +73,9 @@
         }
         else if($page=="baptis_bayi"){
           include "baptis/bayi.php";
+        }
+        else if($page=="detail_bayi"){
+          include "baptis/detail_bayi.php";
         }
         else if($page=="katekumen"){
           include "baptis/katekumen.php";
