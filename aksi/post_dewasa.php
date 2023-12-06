@@ -18,25 +18,45 @@ if (mysqli_num_rows($check_query) > 0) {
     $tempat_lahir = $_POST['tempat_lahir'];
     $alamat = $_POST['alamat'];
     $telp = $_POST['telepon'];
-    $status ='Belum dikonfirmasi';
-    $keterangan ='Belum dikonfirmasi';
+    $status = 'Belum dikonfirmasi';
+    $keterangan = 'Belum dikonfirmasi';
     // $akta = $_POST['akta'];
 
     $gambar = $_FILES['gambar'];
     $gambarName = $gambar['name'];
     $gambarTmpName = $gambar['tmp_name'];
+    $gambarSize = $gambar['size'];
+    $gambarType = $gambar['type'];
 
-// Direktori penyimpanan gambar
-   $uploadDir = '../uploads/';
+    // Direktori penyimpanan gambar
+    $uploadDir = '../uploads/';
 
-// Memindahkan gambar ke direktori penyimpanan
-   move_uploaded_file($gambarTmpName, $uploadDir . $gambarName);
+    // Memeriksa tipe file yang diizinkan (misalnya, hanya gambar)
+    $allowedExtensions = array("jpg", "jpeg", "png", "gif");
+    $fileExtension = strtolower(pathinfo($gambarName, PATHINFO_EXTENSION));
 
+    if (!in_array($fileExtension, $allowedExtensions)) {
+        echo "<script>alert('Hanya file gambar yang diizinkan!'); window.location.href='../index.php?p=baptis_dewasa'</script>";
+        exit(); // Hentikan eksekusi skrip jika tipe file tidak sesuai
+    }
 
-    mysqli_query($conn,"INSERT INTO baptis_dewasa VALUES ('','$id_user','$nama_baptis','$tanggal_lahir','$tempat_lahir','$alamat','$telp','$gambarName','$status','$keterangan')");
+    // Memeriksa ukuran file gambar (misalnya, maksimum 5MB)
+    $maxFileSize = 5 * 1024 * 1024; // 5MB dalam bytes
+
+    if ($gambarSize > $maxFileSize) {
+        echo "<script>alert('Ukuran file terlalu besar! Maksimum 5MB.'); window.location.href='../index.php?p=baptis_dewasa'</script>";
+        exit(); // Hentikan eksekusi skrip jika ukuran file terlalu besar
+    }
+
+    // Memindahkan gambar ke direktori penyimpanan jika lolos validasi
+    move_uploaded_file($gambarTmpName, $uploadDir . $gambarName);
+
+    // Menyimpan data ke dalam database
+    mysqli_query($conn, "INSERT INTO baptis_dewasa VALUES ('','$id_user','$nama_baptis','$tanggal_lahir','$tempat_lahir','$alamat','$telp','$gambarName','$status','$keterangan')");
 
     echo "<script>alert('Pendaftaran berhasil disimpan'); window.location.href='../index.php?p=baptis_dewasa'</script>";
 }
+
 
 // Memasukkan data ke database
 // <!-- mysqli_query($conn,"insert into baptis_dewasa values('','$id_user','$nama_baptis','$tanggal_lahir','$tempat_lahir','$alamat','$telp')"); -->

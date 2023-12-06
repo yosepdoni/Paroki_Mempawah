@@ -73,7 +73,7 @@ if (isset($_SESSION['id_user'])) {
 
             <div class="form-group">
                 <label for="akta">Upload Akta:</label>
-                <input type="file" name="gambar" id="akta">
+                <input type="file" name="gambar" id="akta" required>
                 <!-- <input type="submit" value="Unggah Gambar" name="submit"> -->
             </div>
             <?php

@@ -5,43 +5,56 @@ include '../koneksi.php';
 // Menangkap data yang dikirim dari form
 $id_user = $_POST['id_user'];
 
-// Periksa apakah id_user sudah ada dalam tabel baptis_dewasa
 $check_query_dewasa = mysqli_query($conn, "SELECT id_user FROM baptis_dewasa WHERE id_user = '$id_user'");
-
+// Periksa apakah id_user sudah ada dalam tabel
 if (mysqli_num_rows($check_query_dewasa) > 0) {
-    // id_user sudah ada di tabel baptis_dewasa
-    echo "<script>alert('Anda sudah terdaftar pada baptis dewasa! Tidak bisa melakukan pendaftaran baptis bayi.'); window.location.href='../index.php?p=baptis_bayi'</script>";
+    // id_user ada dalam tabel baptis_dewasa, gagalkan input data
+    echo "<script>alert('Maaf, Anda sudah terdaftar sebagai dewasa!'); window.location.href='../index.php?p=baptis_bayi'</script>";
 } else {
-    // id_user belum ada di tabel baptis_dewasa, lanjutkan untuk mengecek tabel baptis_bayi
-    $check_query_bayi = mysqli_query($conn, "SELECT id_user FROM baptis_bayi WHERE id_user = '$id_user'");
+    $check_query = mysqli_query($conn, "SELECT id_user FROM baptis_bayi WHERE id_user = '$id_user'");
+if (mysqli_num_rows($check_query) > 0) {
+    // id_user sudah ada, lakukan penanganan atau tampilkan pesan kesalahan
+    echo "<script>alert('Anda sudah terdaftar!'); window.location.href='../index.php?p=baptis_bayi'</script>";
+} else {
+    // id_user belum ada, lanjutkan untuk menambahkan data baru
+    $nama_baptis = $_POST['nama'];
+    $tanggal_lahir = $_POST['tgl_lahir'];
+    $tempat_lahir = $_POST['tempat_lahir'];
+    $alamat = $_POST['alamat'];
+    $nama_ayah = $_POST['nama_ayah'];
+    $nama_ibu = $_POST['nama_ibu'];
+    $telp = $_POST['telepon'];
+    $status = 'Belum dikonfirmasi';
+    $keterangan = 'Belum dikonfirmasi';
 
-    if (mysqli_num_rows($check_query_bayi) > 0) {
-        // id_user sudah ada di tabel baptis_bayi
-        echo "<script>alert('Anda sudah terdaftar pada baptis bayi!'); window.location.href='../index.php?p=baptis_bayi'</script>";
-    } else {
-        // id_user belum ada di tabel baptis_bayi, lanjutkan untuk menambahkan data baru ke tabel baptis_bayi
-        // ... (kode selanjutnya untuk input ke tabel baptis_bayi)
-        // Pastikan untuk melanjutkan dengan bagian pengisian ke tabel baptis_bayi di sini
-        // ...
+    $akta = $_FILES['akta'];
+    $aktaName = $akta['name'];
+    $aktaTmpName = $akta['tmp_name'];
+    $aktaType = $akta['type'];
 
-        // Contoh bagian berikut adalah bagian dari kode sebelumnya untuk input ke tabel baptis_bayi
-        $nama_baptis = $_POST['nama'];
-        $tanggal_lahir = $_POST['tgl_lahir'];
-        $tempat_lahir = $_POST['tempat_lahir'];
-        $alamat = $_POST['alamat'];
-        $nama_ayah = $_POST['nama_ayah'];
-        $nama_ibu = $_POST['nama_ibu'];
-        $telp = $_POST['telepon'];
-        $status = 'Belum dikonfirmasi';
-        $keterangan = 'Belum dikonfirmasi';
-        $akta = $_FILES['akta'];
-        $aktaName = $akta['name'];
-        $aktaTmpName = $akta['tmp_name'];
-        $gambar = $_FILES['gambar'];
-        $gambarName = $gambar['name'];
-        $gambarTmpName = $gambar['tmp_name'];
-        
-        // ... (bagian kode lainnya untuk proses pengiriman data ke tabel baptis_bayi)
-    }
+    $gambar = $_FILES['gambar'];
+    $gambarName = $gambar['name'];
+    $gambarTmpName = $gambar['tmp_name'];
+    $gambarType = $gambar['type'];
+
+    // Direktori penyimpanan gambar
+    $uploadDir = '../uploads/';
+
+    // Memeriksa tipe file yang diizinkan (hanya gambar)
+    $allowedImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
+    
+    if (!in_array($aktaType, $allowedImageTypes) || !in_array($gambarType, $allowedImageTypes)) {
+        echo "<script>alert('Hanya file gambar yang diizinkan!'); window.location.href='../index.php?p=baptis_bayi'</script>";
+        exit(); // Hentikan eksekusi skrip jika tipe file tidak sesuai
+    }}
+
+    // Memindahkan berkas ke direktori penyimpanan
+    move_uploaded_file($aktaTmpName, $uploadDir . $aktaName);
+    move_uploaded_file($gambarTmpName, $uploadDir . $gambarName);
+
+    // Melakukan input data ke dalam database
+    mysqli_query($conn, "INSERT INTO baptis_bayi VALUES ('','$id_user','$nama_baptis','$tanggal_lahir','$tempat_lahir','$alamat','$nama_ayah','$nama_ibu','$telp','$aktaName','$gambarName','$status','$keterangan')");
+
+    echo "<script>alert('Pendaftaran berhasil disimpan'); window.location.href='../index.php?p=baptis_bayi'</script>";
 }
 ?>

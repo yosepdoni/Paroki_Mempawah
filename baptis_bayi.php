@@ -79,12 +79,12 @@
 
             <div class="form-group">
                 <label for="akta">Upload Akta:</label>
-                <input type="file" name="akta" id="akta">
+                <input type="file" name="akta" id="akta" required>
             </div>
 
             <div class="form-group">
                 <label for="surat_nikah">Upload Surat Nikah:</label>
-                <input type="file" name="gambar" id="surat_nikah">
+                <input type="file" name="gambar" id="surat_nikah" required>
             </div>
                     
             <div class="text-center">

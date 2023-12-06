@@ -15,7 +15,7 @@ $check_query = mysqli_query($conn, "SELECT id_user FROM katekumen WHERE id_user 
 
 if (mysqli_num_rows($check_query) > 0) {
     // id_user sudah terdaftar di tabel katekumen
-    echo "<script>alert('ID User sudah terdaftar sebagai katekumen!'); window.location.href='../index.php?p=katekumen'</script>";
+    echo "<script>alert('anda sudah terdaftar sebagai katekumen!'); window.location.href='../index.php?p=katekumen'</script>";
 } else {
     // id_user belum terdaftar di tabel katekumen
     // Lakukan penambahan data ke tabel katekumen
