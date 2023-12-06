@@ -9,7 +9,7 @@
     <!-- <a class="btn btn-primary mt-3 mb-2" href="index.php?p=form_katekumen"><i class="fa fa-plus"></i> Tambah Baptis     -->
     </a>
      <!-- Formulir pencarian berdasarkan tanggal -->
-     <form action="../admin/cetak/cetak_tgl_bayi.php" method="get" class="mb-3">
+     <!-- <form action="../admin/cetak/cetak_tgl_bayi.php" method="get" class="mb-3">
                         <div class="row">
                             <div class="col-md-2">
                                 <label for="start_date" class="form-label">Dari Tanggal</label>
@@ -23,7 +23,7 @@
                                 <button type="submit" class="btn btn-info text-dark mt-4">Cetak</button>
                             </div>
                         </div>
-                    </form>
+                    </form> -->
                     <!-- end -->
     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
     <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>

@@ -23,9 +23,10 @@ if (mysqli_num_rows($check_query) > 0) {
     $alamat = $_POST['alamat'];
     $nama_ayah = $_POST['nama_ayah'];
     $nama_ibu = $_POST['nama_ibu'];
-    $telp = $_POST['telepon'];
+    $telp =  "+62" . $_POST['telepon'];
     $status = 'Belum dikonfirmasi';
     $keterangan = 'Belum dikonfirmasi';
+    $tgl_baptis = '';
 
     $akta = $_FILES['akta'];
     $aktaName = $akta['name'];
@@ -46,15 +47,20 @@ if (mysqli_num_rows($check_query) > 0) {
     if (!in_array($aktaType, $allowedImageTypes) || !in_array($gambarType, $allowedImageTypes)) {
         echo "<script>alert('Hanya file gambar yang diizinkan!'); window.location.href='../index.php?p=baptis_bayi'</script>";
         exit(); // Hentikan eksekusi skrip jika tipe file tidak sesuai
-    }}
+    }if (!preg_match("/^\+628[1-9][0-9]+$/", $telp) || strlen($telp) < 14 || strlen($telp) > 15) {
+        echo "<script>alert('Nomor telepon tidak valid');window.location.href='../index.php?p=baptis_bayi'</script>"; 
+    }else{
 
+    
     // Memindahkan berkas ke direktori penyimpanan
     move_uploaded_file($aktaTmpName, $uploadDir . $aktaName);
     move_uploaded_file($gambarTmpName, $uploadDir . $gambarName);
-
+    
     // Melakukan input data ke dalam database
-    mysqli_query($conn, "INSERT INTO baptis_bayi VALUES ('','$id_user','$nama_baptis','$tanggal_lahir','$tempat_lahir','$alamat','$nama_ayah','$nama_ibu','$telp','$aktaName','$gambarName','$status','$keterangan')");
-
+    mysqli_query($conn, "INSERT INTO baptis_bayi VALUES ('','$id_user','$nama_baptis','$tanggal_lahir','$tempat_lahir','$alamat','$nama_ayah','$nama_ibu','$telp','$aktaName','$gambarName','$status','$keterangan','$tgl_baptis')");
+    
     echo "<script>alert('Pendaftaran berhasil disimpan'); window.location.href='../index.php?p=baptis_bayi'</script>";
+}
+}
 }
 ?>

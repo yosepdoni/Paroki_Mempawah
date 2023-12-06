@@ -24,9 +24,11 @@
                                         $UserId = $_POST['id_user'];
                                         $status = $_POST['status'];
                                         $keterangan = $_POST['keterangan'];
+                                        $tgl_baptis = $_POST['tgl_baptis'];
+
 
                                         // Use UPDATE statement to modify existing record
-                                        $query = "UPDATE baptis_dewasa SET status='$status', keterangan='$keterangan' WHERE id_user='$UserId'";
+                                        $query = "UPDATE baptis_dewasa SET status='$status', keterangan='$keterangan' ,tgl_baptis='$tgl_baptis' WHERE id_user='$UserId'";
 
                                         // Execute the query
                                         $result = mysqli_query($conn, $query);
@@ -98,6 +100,15 @@
                                                             <td>:</td>
                                                             <td> <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="keterangan" placeholder="Keterangan"></textarea> </td>
                                                         </tr>
+                                                        <tr>
+                                                            <th scope="row">Tanggal Baptis:</th>
+                                                            <td>:</td>
+                                                            <td> <input type="date" class="form-control" id="tgl_baptis" name="tgl_baptis" required> </td>
+                                                        </tr>
+                                                        <!-- <div class="form-group">
+                                                            <label for="tgl_baptis">Tanggal Baptis:</label>
+                                                            <input type="date" class="form-control" id="tgl_baptis" name="tgl_baptis" required>
+                                                        </div> -->
                                                     </tbody>
                                                 </table>
                                                 <div class="box-footer">

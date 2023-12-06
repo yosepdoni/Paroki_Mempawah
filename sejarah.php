@@ -49,8 +49,6 @@
                 font-size: 24px;
             }
         }
-        h1{
-        }
     </style>
 </head>
 <body class="bg-white">

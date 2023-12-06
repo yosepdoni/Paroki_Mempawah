@@ -24,15 +24,16 @@
                                         $UserId = $_POST['id_user'];
                                         $status = $_POST['status'];
                                         $keterangan = $_POST['keterangan'];
+                                        $tgl_baptis = $_POST['tgl_baptis'];
 
                                         // Use UPDATE statement to modify existing record
-                                        $query = "UPDATE baptis_bayi SET status='$status', keterangan='$keterangan' WHERE id_user='$UserId'";
+                                        $query = "UPDATE baptis_bayi SET status='$status', keterangan='$keterangan', tgl_baptis='$tgl_baptis' WHERE id_user='$UserId'";
 
                                         // Execute the query
                                         $result = mysqli_query($conn, $query);
 
                                         if ($result) {
-                                            echo "<script>alert('Konfirmasi berhasil!'); window.location.href='index.php?p=baptis_dewasa'</script>";
+                                            echo "<script>alert('Konfirmasi berhasil!'); window.location.href='index.php?p=baptis_bayi'</script>";
                                         } else {
                                             echo "<script>alert('Gagal melakukan update. Error: " . mysqli_error($conn) . "');</script>";
                                         }
@@ -116,6 +117,11 @@
                                                             <th scope="row">Keterangan</th>
                                                             <td>:</td>
                                                             <td> <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="keterangan" placeholder="Keterangan"></textarea> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">Tanggal Baptis:</th>
+                                                            <td>:</td>
+                                                            <td> <input type="date" class="form-control" id="tgl_baptis" name="tgl_baptis" required> </td>
                                                         </tr>
                                                     </tbody>
                                                 </table>

@@ -36,40 +36,30 @@ if (isset($_SESSION['id_user'])) {
             <div class="form-group">
                 <label for="nama_baptis">Nama Calon Baptis:</label>
                 <input type="hidden" class="form-control" name="id_user" value="<?php echo $userId; ?>" required>
-                <input type="text" class="form-control" id="nama_baptis" name="nama" value="<?php echo $data['nama']; ?>" required>
+                <input type="text" class="form-control" id="nama_baptis" name="nama" value="<?php echo $data['nama']; ?>" required readonly>
             </div>
             <!-- Tambahkan tombol submit atau elemen lainnya jika diperlukan -->
  
 
             <div class="form-group">
                 <label for="tanggal_lahir">Tanggal Lahir:</label>
-                <input type="date" class="form-control" id="tanggal_lahir" name="tgl_lahir" value="<?php echo $data['tgl_lahir']; ?>" required>
+                <input type="date" class="form-control" id="tanggal_lahir" name="tgl_lahir" value="<?php echo $data['tgl_lahir']; ?>" required readonly>
             </div>
 
             <div class="form-group">
                 <label for="tempat_lahir">Tempat Lahir:</label>
-                <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" value="<?php echo $data['tempat_lahir']; ?>" required>
+                <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" value="<?php echo $data['tempat_lahir']; ?>" required readonly>
             </div>
 
             <div class="form-group">
                 <label for="alamat">Alamat:</label>
-                <input type="text" class="form-control" id="alamat" name="alamat" value="<?php echo $data['alamat']; ?>" required>
+                <input type="text" class="form-control" id="alamat" name="alamat" value="<?php echo $data['alamat']; ?>" required readonly>
             </div>
 
             <div class="form-group">
                 <label for="nomor_telepon">Nomor Telepon:</label>
-                <input type="tel" class="form-control" id="nomor_telepon" name="telepon" value="<?php echo $data['telepon']; ?>" required>
+                <input type="tel" class="form-control" id="nomor_telepon" name="telepon" value="<?php echo $data['telepon']; ?>" required readonly>
             </div>
-
-            <!-- <div class="form-group">
-                <label for="paroki">Paroki:</label>
-                <input type="text" class="form-control" id="paroki" name="paroki" required>
-            </div>
-
-            <div class="form-group">
-                <label for="pastor_paroki">Pastor Paroki:</label>
-                <input type="text" class="form-control" id="pastor_paroki" name="pastor_paroki" required>
-            </div> -->
 
             <div class="form-group">
                 <label for="akta">Upload Akta:</label>

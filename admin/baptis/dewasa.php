@@ -16,11 +16,11 @@
       <div class="row">
         <div class="col-md-2">
           <label for="start_date" class="form-label">Dari Tanggal</label>
-          <input type="date" class="form-control" id="start_date" name="start_date">
+          <input type="date" class="form-control" id="start_date" name="start_date" required>
         </div>
         <div class="col-md-2">
           <label for="end_date" class="form-label">Sampai Tanggal</label>
-          <input type="date" class="form-control" id="end_date" name="end_date">
+          <input type="date" class="form-control" id="end_date" name="end_date" required>
         </div>
         <div class="col-md-2">
           <button type="submit" class="btn btn-info text-dark mt-4">Cetak</button>

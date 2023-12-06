@@ -13,7 +13,7 @@ if (!$koneksi) {
 $start_date = isset($_GET['start_date']) ? $_GET['start_date'] : null;
 $end_date = isset($_GET['end_date']) ? $_GET['end_date'] : null;
 
-$query = "SELECT * FROM baptis_dewasa";
+$query = "SELECT * FROM baptis_bayi";
 
 if ($start_date && $end_date) {
     $query .= " WHERE tgl_baptis BETWEEN '$start_date' AND '$end_date'";
@@ -91,7 +91,7 @@ if (!$result) {
 
 <body>
 
-    <h1>Laporan Baptis Dewasa - Paroki Mempawah</h1>
+    <h1>Laporan Baptis Bayi - Paroki Mempawah</h1>
     <h1>Keuskupan Agung Pontianak</h1>
         <h3>Jl. Teratai No.12, Terusan, Kec. Mempawah Hilir, Kab. Mempawah, Kalimantan Barat 78912</h3>
          <!-- <?php

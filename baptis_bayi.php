@@ -74,7 +74,10 @@
 
             <div class="form-group">
                 <label for="nomor_telepon">Nomor Telepon:</label>
-                <input type="tel" class="form-control" id="nomor_telepon" name="telepon" required>
+                <div class="input-group">
+                    <span class="input-group-text">+62</span>
+                    <input type="text" name="telepon" class="form-control" id="nomor_telepon" placeholder="xxxxxxxxxxxx" required>
+                </div>
             </div>
 
             <div class="form-group">
