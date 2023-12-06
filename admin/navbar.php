@@ -38,7 +38,7 @@ include '../session.php';
                     <a class="nav-link active text-light fs-6" aria-current="page" href="./">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link active text-light fs-6" aria-current="page" href="index.php?p=absen">Absen</a>
+                <a class="nav-link active text-light fs-6" aria-current="page" href="index.php?p=absen">Presensi</a>
             </li>
                 </ul>';
         }
