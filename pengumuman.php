@@ -1,6 +1,6 @@
 <section id="pengumuman">
   <header class="text-center my-3 text-light">
-    <h5 class="text-center"> Pengumuman Baptis </h5>
+    <h3 class="text-center"> Pengumuman Baptis </h3>
   </header>
   <main class="container bg-light p-5" data-aos="zoom-in">
     <div class="table-responsive">

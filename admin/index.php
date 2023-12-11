@@ -77,6 +77,12 @@
         else if($page=="detail_bayi"){
           include "baptis/detail_bayi.php";
         }
+        else if($page=="surat_baptis_dewasa"){
+          include "baptis/surat_baptis_dewasa.php";
+        }
+        else if($page=="surat_baptis_bayi"){
+          include "baptis/surat_baptis_bayi.php";
+        }
         else if($page=="katekumen"){
           include "baptis/katekumen.php";
         }
