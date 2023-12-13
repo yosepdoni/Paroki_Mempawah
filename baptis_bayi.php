@@ -13,7 +13,7 @@
     ?>
 
     <div class="container p-5 mt-5">
-        <h1 class="text-center">Form Pendaftaran Baptis Bayi</h1>
+        <h1 class="text-center">Form Pendaftaran Sakramen Baptis Bayi</h1>
 
 
         <form action="./aksi/post_bayi.php" method="POST" enctype="multipart/form-data">

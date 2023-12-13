@@ -92,20 +92,20 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="card">
-                    <img src="images/uskup.jpg" class="card-img-top" alt="Foto Pastor 1">
+                    <img src="" class="card-img-top" alt="Foto Pastor 1">
                     <div class="card-body">
                         <h5 class="card-title">Nama Pastor Paroki: RD Anton Silvinus</h5>
-                        <p class="card-text">Deskripsi Pastor: Pastor John Doe adalah pastor paroki Gereja Santo Fransiskus Xaverius Mempawah. Beliau telah melayani gereja ini selama 10 tahun dan memiliki pengalaman yang luas dalam membimbing umat. Beliau sangat peduli terhadap perkembangan rohani umat paroki ini.</p>
+                        <p class="card-text">Deskripsi Pastor: Pastor Anton adalah pastor paroki Gereja Santo Fransiskus Xaverius Mempawah. Beliau telah melayani gereja ini selama 10 tahun dan memiliki pengalaman yang luas dalam membimbing umat. Beliau sangat peduli terhadap perkembangan rohani umat paroki ini.</p>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-6">
                 <div class="card">
-                    <img src="images/uskup.jpg" class="card-img-top" alt="Foto Pastor 2">
+                    <img src="" class="card-img-top" alt="Foto Pastor 2">
                     <div class="card-body">
                         <h5 class="card-title">Nama Pastor Paroki: RD Alexander Mardalis</h5>
-                        <p class="card-text">Deskripsi Pastor: Pastor Jane Smith adalah pastor paroki Gereja Santo Fransiskus Xaverius Mempawah. Beliau memiliki semangat yang tinggi dalam melayani umat dan selalu siap membantu dalam kebutuhan rohani dan spiritual umat paroki.</p>
+                        <p class="card-text">Deskripsi Pastor: Pastor Alex adalah pastor paroki Gereja Santo Fransiskus Xaverius Mempawah. Beliau memiliki semangat yang tinggi dalam melayani umat dan selalu siap membantu dalam kebutuhan rohani dan spiritual umat paroki.</p>
                     </div>
                 </div>
             </div>
@@ -138,7 +138,7 @@
 
     <!-- kolekte -->
     <header class="text-dark text-center py-2">
-      <h5>Kolekte Untuk Gereja Paroki Santo Fransiskus Xaverius Mempawah</h5>
+      <h5>Kolekte</h5>
     </header>
     <main class="container my-1">
       <div class="row">
@@ -148,7 +148,7 @@
               <div class="card-body">
                 <h3 class="card-title">Bank KALBAR</h3>
                 <p class="card-text">No. Rekening: 5225020631</p>
-                <p class="card-text">a.n. Gereja Santo Serenus Bangkam</p>
+                <p class="card-text">a.n. Gereja Katolik Santo FX Mempawah</p>
               </div>
             </div>
           </div>
@@ -159,7 +159,7 @@
               <div class="card-body">
                 <h3 class="card-title">Bank BRI</h3>
                 <p class="card-text">No. Rekening: 3859-01-025477-53-5</p>
-                <p class="card-text">a.n. Panitia Renovasi Gereja Stasi St. Serenus Bangkam</p>
+                <p class="card-text">a.n. Gereja Katolik Santo FX Mempawah</p>
               </div>
             </div>
           </div>

@@ -17,7 +17,7 @@ include '../session.php';
         if (!empty($_SESSION['email']) && $userLevel === "admin") {
           echo '    
             <li class="nav-item">
-                    <a class="nav-link active text-light fs-6" aria-current="page" href="./">Home</a>
+                    <a class="nav-link active text-light fs-6" aria-current="page" href="./">Beranda</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-light fs-6" href="index.php?p=jadwal">Jadwal</a>
