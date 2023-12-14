@@ -65,7 +65,7 @@
 
               <td>
               <a class="btn btn-warning btn-sm" href="index.php?p=detail_bayi&id=<?= $result['id_user']; ?>">Detail</a>
-              <!-- <a class="btn btn-warning btn-sm" href="index.php?p=surat_baptis_bayi&id=<?= $result['id_user']; ?>">Baptis</a> -->
+              <a class="btn btn-warning btn-sm" href="index.php?p=surat_baptis_bayi&id=<?= $result['id_user']; ?>">Baptis</a>
               </td>
 
               <!-- <td>

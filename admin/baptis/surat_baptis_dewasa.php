@@ -10,7 +10,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Cetak Surat Baptis</h3>
+                            <h3 class="card-title">Cetak Surat Baptis Dewasa</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -19,33 +19,12 @@
 
                                 <div class="box-body">
                                     <?php
-                                    include '../koneksi.php';
-                                    if (isset($_POST['id_user'])) {
-                                        $UserId = $_POST['id_user'];
-                                        $status = $_POST['status'];
-                                        $keterangan = $_POST['keterangan'];
-                                        $tgl_baptis = $_POST['tgl_baptis'];
-
-
-                                        // Use UPDATE statement to modify existing record
-                                        $query = "UPDATE baptis_dewasa SET status='$status', keterangan='$keterangan' ,tgl_baptis='$tgl_baptis' WHERE id_user='$UserId'";
-
-                                        // Execute the query
-                                        $result = mysqli_query($conn, $query);
-
-                                        if ($result) {
-                                            echo "<script>alert('Konfirmasi berhasil!'); window.location.href='index.php?p=baptis_dewasa'</script>";
-                                        } else {
-                                            echo "<script>alert('Gagal melakukan update. Error: " . mysqli_error($conn) . "');</script>";
-                                        }
-                                    }
                                     $id = $_GET['id'];
                                     $data = mysqli_query($conn, "SELECT * FROM baptis_dewasa WHERE id_user='$id'");
                                     while ($da = mysqli_fetch_array($data)) {
                                     ?>
-                                        <form class="form-horizontal" method="POST" action="">
+                                        <form class="form-horizontal" method="GET" action="../admin/cetak/cetak_surat_baptis.php">
                                             <div class="box-body">
-                                                <!-- <input type="hidden" name="id_user" value="<?= $result['id_user']; ?>"> -->
                                                 <input type="hidden" name="id_user" value="<?= $da['id_user']; ?>">
                                                 <table class="table">
                                                     <tbody>
@@ -73,13 +52,28 @@
                                                         <tr>
                                                             <th scope="row">Pembaptis</th>
                                                             <td>:</td>
-                                                            <td> <textarea class="form-control" id="exampleFormControlTextarea1" name="keterangan" placeholder="Nama Pastor yang membaptis"></textarea> </td>
+                                                            <td> <textarea class="form-control" id="exampleFormControlTextarea1" name="pembaptis" placeholder="Nama Pastor yang membaptis"></textarea> </td>
                                                         </tr>
                                                         <tr>
+                                                            <th scope="row">Nama Ayah</th>
+                                                            <td>:</td>
+                                                            <td> <textarea class="form-control" id="exampleFormControlTextarea1" name="nama_ayah" placeholder="Nama Ayah"></textarea> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">Nama Ibu</th>
+                                                            <td>:</td>
+                                                            <td> <textarea class="form-control" id="exampleFormControlTextarea1" name="nama_ibu" placeholder="Nama Ibu"></textarea> </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">Wali Baptis</th>
+                                                            <td>:</td>
+                                                            <td> <textarea class="form-control" id="exampleFormControlTextarea1" name="wali_baptis" placeholder="Wali Baptis"></textarea> </td>
+                                                        </tr>
+                                                        <!-- <tr>
                                                             <th scope="row">Tanggal Baptis:</th>
                                                             <td>:</td>
                                                             <td> <input type="date" class="form-control" id="tgl_baptis" name="tgl_baptis" required> </td>
-                                                        </tr>
+                                                        </tr> -->
                                                         <!-- <div class="form-group">
                                                             <label for="tgl_baptis">Tanggal Baptis:</label>
                                                             <input type="date" class="form-control" id="tgl_baptis" name="tgl_baptis" required>
@@ -87,7 +81,7 @@
                                                     </tbody>
                                                 </table>
                                                 <div class="box-footer">
-                                                    <button type="submit" name="konfirmasi" class="btn btn-info float-right"> Cetak Surat Baptis</button>
+                                                    <button type="submit" class="btn btn-info float-right"> Cetak Surat Baptis</button>
                                                 </div>
                                         </form>
                                     <?php

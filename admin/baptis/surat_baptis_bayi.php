@@ -10,7 +10,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Detail Baptis Dewasa</h3>
+                            <h3 class="card-title">Cetak Surat Baptis Bayi</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -42,9 +42,8 @@
                                     $data = mysqli_query($conn, "SELECT * FROM baptis_bayi WHERE id_user='$id'");
                                     while ($da = mysqli_fetch_array($data)) {
                                     ?>
-                                        <form class="form-horizontal" method="POST" action="">
+                                        <form class="form-horizontal" method="GET" action="../admin/cetak/cetak_surat_baptis.php">
                                             <div class="box-body">
-                                                <!-- <input type="hidden" name="id_user" value="<?= $result['id_user']; ?>"> -->
                                                 <input type="hidden" name="id_user" value="<?= $da['id_user']; ?>">
                                                 <table class="table">
                                                     <tbody>
@@ -103,30 +102,19 @@
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <th scope="row">Status</th>
+                                                            <th scope="row">Pembaptis</th>
                                                             <td>:</td>
-                                                            <td>
-                                                                <select class="form-select mb-1" id="validationCustom04" name="status" required>
-                                                                    <option selected disabled value="">Pilih</option>
-                                                                    <option> Diterima </option>
-                                                                    <option> Ditolak </option>
-                                                                </select>
-                                                            </td>
+                                                            <td> <textarea class="form-control" id="exampleFormControlTextarea1" name="pembaptis" placeholder="Nama Pastor yang membaptis"></textarea> </td>
                                                         </tr>
                                                         <tr>
-                                                            <th scope="row">Keterangan</th>
+                                                            <th scope="row">Wali Baptis</th>
                                                             <td>:</td>
-                                                            <td> <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="keterangan" placeholder="Keterangan"></textarea> </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">Tanggal Baptis:</th>
-                                                            <td>:</td>
-                                                            <td> <input type="date" class="form-control" id="tgl_baptis" name="tgl_baptis" required> </td>
+                                                            <td> <textarea class="form-control" id="exampleFormControlTextarea1" name="wali_baptis" placeholder="Wali Baptis"></textarea> </td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
                                                 <div class="box-footer">
-                                                    <button type="submit" name="konfirmasi" class="btn btn-info float-right"> Konfirmasi</button>
+                                                <button type="submit" class="btn btn-info float-right"> Cetak Surat Baptis</button>
                                                 </div>
                                         </form>
                                     <?php
