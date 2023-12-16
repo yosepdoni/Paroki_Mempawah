@@ -74,7 +74,6 @@
                 <!-- <td><?php echo $result['akta']; ?></td> -->
                 <td>
                 <a class="btn btn-warning btn-sm" href="index.php?p=detail_dewasa&id=<?= $result['id_user']; ?>">Detail</a>
-                <a class="btn btn-warning btn-sm" href="index.php?p=surat_baptis_dewasa&id=<?= $result['id_user']; ?>">Baptis</a>
                 </td>
               </form>
             </tr>

@@ -90,11 +90,17 @@
           include "form_jadwal.php";
         } 
         else if($page=="ac_delete_jadwal"){
-        include "aksi/ac_delete_jadwal.php";
+          include "aksi/ac_delete_jadwal.php";
         }
         else if($page=="edit_jadwal"){
           include "edit_jadwal.php";
           }
+        else if($page=="acc_baptis_bayi"){
+          include "acc/baptis_bayi.php";
+          }
+        else if($page=="acc_baptis_dewasa"){
+          include "acc/baptis_dewasa.php";
+          }      
         else if($page=="sejarah"){
             include "sejarah.php";   
         }

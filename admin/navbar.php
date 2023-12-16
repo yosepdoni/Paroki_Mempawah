@@ -37,8 +37,8 @@ include '../session.php';
                   Sakramen Baptis
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="index.php?p=baptis_bayi">Baptis Bayi</a></li>
-                  <li><a class="dropdown-item" href="index.php?p=baptis_dewasa">Baptis Dewasa</a></li>
+                  <li><a class="dropdown-item" href="index.php?p=acc_baptis_bayi">Baptis Bayi</a></li>
+                  <li><a class="dropdown-item" href="index.php?p=acc_baptis_dewasa">Baptis Dewasa</a></li>
                 </ul>
               </li>
             </ul>';
