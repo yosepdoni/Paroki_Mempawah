@@ -147,8 +147,8 @@ if (!$result) {
 
             <p>
                 Telah menerima Sakramen Baptis dalam Gereja Katolik <br>
-                pada tanggal <?= $row['tgl_baptis'];?> <br>
-                 di Gereja St Fransiskus Xaverius Mempawah.
+                Pada Tanggal <?= $row['tgl_baptis'];?> <br>
+                 di Gereja St. Fransiskus Xaverius Mempawah
             </p>
 
             <p>
@@ -178,7 +178,7 @@ document.getElementById("tanggal").innerHTML = formattedDate;
 
 
 
-        // window.print();
+        window.print();
     </script>
 </body>
 </html>

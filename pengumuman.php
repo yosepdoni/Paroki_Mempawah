@@ -1,8 +1,8 @@
 <section id="pengumuman">
-  <header class="text-center my-3 text-light">
-    <h3 class="text-center"> Pengumuman Baptis </h3>
-  </header>
-  <main class="container bg-light p-5" data-aos="zoom-in">
+  <main class="p-5 mt-5 text-dark">
+    <h1 class="text-center"> Pengumuman Baptis </h1>
+</main>
+  <main class="container" data-aos="zoom-in">
     <div class="table-responsive">
       <table class="table table-bordered">
         <thead class="thead-light">
@@ -10,6 +10,7 @@
             <th scope="col">Nama</th>
             <th scope="col">Status</th>
             <th scope="col">Keterangan</th>
+            <th scope="col">Tanggal Baptis</th>
           </tr>
         </thead>
         <tbody>
@@ -31,6 +32,7 @@
               <td><?php echo $dataDewasa['nama']; ?></td>
               <td><?php echo $dataDewasa['status']; ?></td>
               <td><?php echo $dataDewasa['keterangan']; ?></td>
+              <td><?php echo $dataDewasa['tgl_baptis']; ?></td>
             </tr>
             <?php
           } else {
@@ -47,6 +49,7 @@
                 <td><?php echo $dataBayi['nama']; ?></td>
                 <td><?php echo $dataBayi['status']; ?></td>
                 <td><?php echo $dataBayi['keterangan']; ?></td>
+                <td><?php echo $dataBayi['tgl_baptis']; ?></td>
               </tr>
           <?php
             } else {

@@ -22,15 +22,25 @@ include '../session.php';
                 <li class="nav-item">
                     <a class="nav-link text-light fs-6" href="index.php?p=jadwal">Jadwal</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light fs-6" href="index.php?p=katekumen">Katekumen</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light fs-6" href="index.php?p=baptis_dewasa">Baptis Dewasa</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light fs-6" href="index.php?p=baptis_bayi">Baptis Bayi</a>
-                </li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
+                  Pendaftaran
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="index.php?p=katekumen">Katekumen</a></li>
+                  <li><a class="dropdown-item" href="index.php?p=baptis_dewasa">Calon Baptis Dewasa</a></li>
+                  <li><a class="dropdown-item" href="index.php?p=baptis_bayi">Calon Baptis Bayi</a></li>
+                </ul>
+              </li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
+                  Sakramen Baptis
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="index.php?p=baptis_bayi">Baptis Bayi</a></li>
+                  <li><a class="dropdown-item" href="index.php?p=baptis_dewasa">Baptis Dewasa</a></li>
+                </ul>
+              </li>
             </ul>';
         }else {
             echo '

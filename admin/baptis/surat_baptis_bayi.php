@@ -84,32 +84,14 @@
                                                             <td> <?= $da['telepon']; ?></td>
                                                         </tr>
                                                         <tr>
-                                                            <th scope="row">Akta</th>
-                                                            <td>:</td>
-                                                            <td>
-                                                                <a href="../uploads/<?= $da['akta']; ?>" target="_blank">
-                                                                    <img src="../uploads/<?= $da['akta']; ?>" alt="gambar" width="70" height="70">
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">Surat Nikah</th>
-                                                            <td>:</td>
-                                                            <td>
-                                                                <a href="../uploads/<?= $da['surat_nikah']; ?>" target="_blank">
-                                                                    <img src="../uploads/<?= $da['surat_nikah']; ?>" alt="gambar" width="70" height="70">
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
                                                             <th scope="row">Pembaptis</th>
                                                             <td>:</td>
-                                                            <td> <textarea class="form-control" id="exampleFormControlTextarea1" name="pembaptis" placeholder="Nama Pastor yang membaptis"></textarea> </td>
+                                                            <td><input type="text" class="form-control" id="pembaptis" name="pembaptis" placeholder="Nama Pastor yang membaptis" required></td>
                                                         </tr>
                                                         <tr>
                                                             <th scope="row">Wali Baptis</th>
                                                             <td>:</td>
-                                                            <td> <textarea class="form-control" id="exampleFormControlTextarea1" name="wali_baptis" placeholder="Wali Baptis"></textarea> </td>
+                                                            <td><input type="text" class="form-control" id="wali_baptis" name="wali_baptis" placeholder="Nama Wali Baptis" required></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>

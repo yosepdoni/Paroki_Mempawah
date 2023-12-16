@@ -50,34 +50,25 @@
                                                             <td> <?= $da['alamat']; ?></td>
                                                         </tr>
                                                         <tr>
-                                                            <th scope="row">Pembaptis</th>
-                                                            <td>:</td>
-                                                            <td> <textarea class="form-control" id="exampleFormControlTextarea1" name="pembaptis" placeholder="Nama Pastor yang membaptis"></textarea> </td>
-                                                        </tr>
-                                                        <tr>
                                                             <th scope="row">Nama Ayah</th>
                                                             <td>:</td>
-                                                            <td> <textarea class="form-control" id="exampleFormControlTextarea1" name="nama_ayah" placeholder="Nama Ayah"></textarea> </td>
+                                                            <td><input type="text" class="form-control" id="nama_ayah" name="nama_ayah" placeholder="Nama Ayah" required></td>
                                                         </tr>
                                                         <tr>
                                                             <th scope="row">Nama Ibu</th>
                                                             <td>:</td>
-                                                            <td> <textarea class="form-control" id="exampleFormControlTextarea1" name="nama_ibu" placeholder="Nama Ibu"></textarea> </td>
+                                                            <td><input type="text" class="form-control" id="nama_ibu" name="nama_ibu" placeholder="Nama Ibu" required></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">Pembaptis</th>
+                                                            <td>:</td>
+                                                            <td><input type="text" class="form-control" id="pembaptis" name="pembaptis" placeholder="Nama Pastor yang membaptis" required></td>
                                                         </tr>
                                                         <tr>
                                                             <th scope="row">Wali Baptis</th>
                                                             <td>:</td>
-                                                            <td> <textarea class="form-control" id="exampleFormControlTextarea1" name="wali_baptis" placeholder="Wali Baptis"></textarea> </td>
+                                                            <td><input type="text" class="form-control" id="wali_baptis" name="wali_baptis" placeholder="Nama Wali Baptis" required></td>
                                                         </tr>
-                                                        <!-- <tr>
-                                                            <th scope="row">Tanggal Baptis:</th>
-                                                            <td>:</td>
-                                                            <td> <input type="date" class="form-control" id="tgl_baptis" name="tgl_baptis" required> </td>
-                                                        </tr> -->
-                                                        <!-- <div class="form-group">
-                                                            <label for="tgl_baptis">Tanggal Baptis:</label>
-                                                            <input type="date" class="form-control" id="tgl_baptis" name="tgl_baptis" required>
-                                                        </div> -->
                                                     </tbody>
                                                 </table>
                                                 <div class="box-footer">

@@ -1,15 +1,15 @@
  <!-- jadwal -->
  <section id="jadwal">
-<header class="text-center my-3 text-light">
-      <h5>
+<header class="text-center p-5 mt-5">
+      <h3>
       <?php
       include 'time.php';
         // echo date("d")." ".month(date("n"))." ".date("Y");
         echo "Jadwal Ibadah Bulan&nbsp;".month(date("n"));
         ?>
-        </h5>
+        </h3>
       </header>
-      <main class="container bg-light p-5" data-aos="zoom-in">
+      <main class="container" data-aos="zoom-in">
         <div class="table-responsive">
           <table class="table table-bordered">
             <thead class="thead-light">
