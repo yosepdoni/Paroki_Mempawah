@@ -84,7 +84,7 @@ if ($queryPresensi) {
 }
 
 // Tentukan batas jumlah presensi untuk men-disable button
-$minPresensi = 5;
+$minPresensi = 20;
 
 // Tentukan apakah button harus di-disable atau tidak berdasarkan jumlah presensi
 $isButtonDisabled = ($jumlahPresensi >= $minPresensi) ? false : true;

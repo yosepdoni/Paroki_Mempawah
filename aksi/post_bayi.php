@@ -27,6 +27,7 @@ if (mysqli_num_rows($check_query) > 0) {
     $status = 'Belum dikonfirmasi';
     $keterangan = 'Belum dikonfirmasi';
     $tgl_baptis = '';
+    $dokumentasi = '';
 
     $akta = $_FILES['akta'];
     $aktaName = $akta['name'];
@@ -57,7 +58,7 @@ if (mysqli_num_rows($check_query) > 0) {
     move_uploaded_file($gambarTmpName, $uploadDir . $gambarName);
     
     // Melakukan input data ke dalam database
-    mysqli_query($conn, "INSERT INTO baptis_bayi VALUES ('','$id_user','$nama_baptis','$tanggal_lahir','$tempat_lahir','$alamat','$nama_ayah','$nama_ibu','$telp','$aktaName','$gambarName','$status','$keterangan','$tgl_baptis')");
+    mysqli_query($conn, "INSERT INTO baptis_bayi VALUES ('','$id_user','$nama_baptis','$tanggal_lahir','$tempat_lahir','$alamat','$nama_ayah','$nama_ibu','$telp','$aktaName','$gambarName','$status','$keterangan','$tgl_baptis','$dokumentasi')");
     
     echo "<script>alert('Pendaftaran berhasil disimpan'); window.location.href='../index.php?p=baptis_bayi'</script>";
 }

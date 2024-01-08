@@ -152,7 +152,7 @@ if (!$result) {
             </p>
 
             <p>
-                Disaksikan oleh: <br>
+                Dibaptis oleh: <br>
                 Pastor: <?= $pembaptis; ?> <br>
                 Wali Baptis:  <?= $wali_baptis; ?> <br>
                 

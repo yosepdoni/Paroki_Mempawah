@@ -12,7 +12,7 @@
     <!-- <a class="btn btn-primary mt-3 mb-2" href="index.php?p=form_jadwal"><i class="fa fa-plus"></i> Tambah Baptis-->
     </a>
     <!-- Formulir pencarian berdasarkan tanggal -->
-    <form action="../admin/cetak/cetak_tgl_dewasa.php" method="get" class="mb-3">
+    <!-- <form action="../admin/cetak/cetak_tgl_dewasa.php" method="get" class="mb-3">
       <div class="row">
         <div class="col-md-2">
           <label for="start_date" class="form-label">Dari Tanggal</label>
@@ -26,8 +26,32 @@
           <button type="submit" class="btn btn-info text-dark mt-4">Cetak</button>
         </div>
       </div>
-    </form>
-    <!-- end -->
+    </form> -->
+    <!-- Formulir pencarian berdasarkan tanggal -->
+<form action="../admin/cetak/cetak_tgl_bayi.php" method="get" class="mb-3">
+  <div class="row">
+    <div class="col-md-2">
+      <label for="start_date" class="form-label">Dari Tanggal</label>
+      <input type="date" class="form-control" id="start_date" name="start_date" required>
+    </div>
+    <div class="col-md-2">
+      <label for="end_date" class="form-label">Sampai Tanggal</label>
+      <input type="date" class="form-control" id="end_date" name="end_date" required>
+    </div>
+    <div class="col-md-2">
+      <label for="baptis_type" class="form-label">Jenis Baptis</label>
+      <select class="form-select" id="baptis_type" name="baptis_type" required>
+        <option value="paskah">Baptis Paskah</option>
+        <option value="natal">Baptis Natal</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <button type="submit" class="btn btn-info text-dark mt-4">Cetak</button>
+    </div>
+  </div>
+</form>
+<!-- end -->
+
     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
     <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <div class="table-responsive">
@@ -40,6 +64,8 @@
             <th scope="col">Tempat Lahir</th>
             <th scope="col">Alamat</th>
             <th scope="col">Telepon</th>
+            <!-- <th scope="col">Status</th> -->
+            <th scope="col">Dokumentasi</th>
             <th scope="col">Aksi</th>
 
           </tr>
@@ -47,12 +73,12 @@
         <tbody>
           <?php
           include "../koneksi.php";
-          $data = mysqli_query($conn, "select * from baptis_dewasa");
+          $data = mysqli_query($conn, "select * from baptis_dewasa where status='diterima'");
           $no = 1;
           while ($result = mysqli_fetch_array($data)) {
           ?>
             <tr>
-              <form method="POST">
+              <form method="POST" action="acc/update_gambar_dewasa.php"  enctype="multipart/form-data">
                 <td><?= $no++; ?></td>
                 <input type="hidden" name="id_user" value="<?= $result['id_user']; ?>">
                 <p hidden>
@@ -71,10 +97,29 @@
                 <td><?php echo $result['tempat_lahir']; ?></td>
                 <td><?php echo $result['alamat']; ?></td>
                 <td><?php echo $result['telepon']; ?></td>
-                <!-- <td><?php echo $result['akta']; ?></td> -->
+                <!-- <td><?php echo $result['status']; ?></td> -->
                 <td>
-                <a class="btn btn-warning btn-sm" href="index.php?p=detail_dewasa&id=<?= $result['id_user']; ?>">Detail</a>
-                <a class="btn btn-info btn-sm" href="index.php?p=surat_baptis_dewasa&id=<?= $result['id_user']; ?>">Baptis</a>
+                  <center>
+                  <a href="../uploads/<?= $result['dokumentasi']; ?>" target="_blank">
+                  <img src="../uploads/<?= $result['dokumentasi']; ?>" alt="gambar" width="80" height="80">
+                  </a>
+                  </center>
+                </td>
+                <td>
+                <?php if (empty($result['dokumentasi'])) : ?>
+                  <div class="form-group">
+                      <form action="proses_upload.php" method="post" enctype="multipart/form-data">
+                          <input type="hidden" name="id_user" value="<?= $result['id_user']; ?>">
+                          <input type="file" name="gambar" id="akta" required>
+                          <input type="submit" value="Kirim" name="submit">
+                      </form>
+                  </div>
+                  <?php else : ?>
+                      <a class="btn btn-info btn-sm" href="index.php?p=surat_baptis_dewasa&id=<?= $result['id_user']; ?>">Baptis</a>
+                  <?php endif; ?>
+
+                <!-- <a class="btn btn-info btn-sm" href="index.php?p=surat_baptis_dewasa&id=<?= $result['id_user']; ?>">Baptis</a> -->
+
                 </td>
               </form>
             </tr>
@@ -92,3 +137,7 @@
     </div>
   </div>
 </div>
+
+
+
+

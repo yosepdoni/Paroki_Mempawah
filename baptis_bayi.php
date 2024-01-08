@@ -90,7 +90,7 @@
                 <input type="file" name="gambar" id="surat_nikah" required>
             </div>
                     
-            <div class="text-center">
+            <div class="text-right">
                 <button type="submit" class="btn btn-primary">Daftar</button>
             </div>
 
